@@ -1,0 +1,77 @@
+.HeaderFaq{
+    
+    margin: 0px;
+    /* height: 40vh;
+    width: 100%; */
+  
+    /* min-height: 300px;
+    min-width: 100%; */
+  }
+  .HeaderFaq img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+
+  
+
+  .BodyFaq p{
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+    
+  }
+
+
+  .MainFaq{
+      
+      padding: 10px;
+      margin-top: 20px;
+  }
+
+  .BodyFaq{
+    
+  }
+
+  
+  .panel{
+    margin: 10px;
+    border: solid 1px black;
+    padding: 10px;
+    position: relative;
+   border-radius: 5px;
+  }
+
+  .panel a{
+    text-decoration: none;
+    color: red;
+    font-size: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  .panel-body p{
+    color: black;
+  }
+
+  
+  
+
+  .PanelOpening{
+    position: absolute;
+    left: 95%;
+    bottom:18px;
+  }
+  
+  .PanelOpening img{
+    height: 30px;
+    width: 30px;
+  }
+
+  .brown{
+    width: 90%;
+  }
+

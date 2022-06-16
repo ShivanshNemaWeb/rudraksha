@@ -1,0 +1,52 @@
+.AMS__main {
+    margin-top: 2rem;
+}
+
+.AMS__shadow {
+    box-shadow: 0px 1px 10px;
+    width: 90vw;
+    margin: auto;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.AMS__heading {
+    color: #5384a5;
+}
+
+.AMS__head {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    padding: 0px 5px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    background: linear-gradient(90deg, #5384a5 10%, #45a3b8 100%);
+    ;
+}
+
+.AMS__logo {
+    padding-right: 5px;
+}
+
+.AMS__form__heading {
+    font-weight: 600;
+    color: #fff;
+    font-size: x-large
+}
+
+.AMS__form {
+    margin: 1rem;
+}
+
+.AMS__form2 {
+    width: 70vw;
+    align-items: flex-end;
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    align-items: center !important;
+}

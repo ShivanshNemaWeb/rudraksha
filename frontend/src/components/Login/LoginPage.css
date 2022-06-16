@@ -1,0 +1,188 @@
+.BodyLogin{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.MainLogin{
+    
+    width: 25%;
+    margin:auto ;
+    padding: 10px;
+    position: absolute;
+    left: 35%;
+    top:35%;
+    
+}
+
+
+.NavLogin{
+    padding: 20px;
+    background-color: #2FA4FF;
+    text-align: center;
+}
+
+
+.NavLogin img{
+    position: relative;
+    right: 50px;
+    border-radius: 100%;
+    height: 100px;
+    width: 100px;
+}
+
+.NavLogin h2{
+    width: fit-content;
+    margin: auto;
+    font-size: 3rem;
+    color: white;
+    font-weight: lighter;
+    position: relative    ;
+    right: 50px;
+}
+
+
+
+
+/* 
+.HeadingLogin{
+    width: fit-content;
+    position: relative;
+    left: 90px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    
+}
+
+.HeadingLogin h2{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.HeadingLogin h2 span:nth-child(1){
+    font-weight: bolder;
+    margin: 2px;
+    color: #2FA4FF;
+}
+.HeadingLogin h2 span:nth-child(2){
+    font-weight: lighter;
+    margin: 2px;
+    color: white;
+    
+} */
+
+.UserLogin{
+    border-bottom: 2px solid grey;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 8px;
+    margin: 10px 20px 20px 10px;
+    background-color: white;
+}
+.UserLogin input{
+    border: none;
+}
+.UserLogin input:focus{
+    border: white;
+    box-shadow: none;
+}
+
+.UserLogin img{
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top:5px;
+}
+
+.PwdLogin{
+    border-bottom: 2px solid grey;
+    display: flex;
+    border-radius: 8px;
+    margin: 10px 20px 20px 10px;
+    background-color: white;
+}
+.PwdLogin input{
+    border: none;
+}
+
+.PwdLogin input:focus{
+    border: white;
+    box-shadow: none;
+}
+
+.PwdLogin img{
+    margin: 5px;
+    height: 20px;
+    width: 20px;
+    position: relative;
+    top:5px;
+}
+
+.RemLogin{
+    color: black;
+    margin: 30px 20px 20px 10px;  
+}
+.RemLogin label{
+    margin: 2px;
+    position: relative;
+    left:30px
+}
+.RemLogin input{
+    margin: 2px;
+}
+
+.btnLogin{
+    margin: 30px 20px 20px 10px;
+}
+
+.btnLogin button{
+    width: 100%;
+    color: #2FA4FF;
+}
+.btnLogin button span{
+    color: white;
+}
+.error-msg{
+    font-size: 12px;
+    width: 100%;
+    color: red;
+}
+
+@media only screen and ( max-width: 480px){
+
+    .MainLogin{
+width: 100%;
+position: absolute;
+left:10px;
+height: 100px;
+    }
+
+
+    .NavLogin{
+        border: 2px solid black;
+        
+    }
+
+    .NavLogin h2{
+        position: relative;
+        left:5px;
+        font-size: 2rem;
+    }
+
+    .NavLogin img{
+        position: relative;
+        left:5px;
+        height: 50px;
+        width: 50px;
+    }
+
+
+    .RemLogin label{
+        position: relative;
+        left:30px;
+    }
+}

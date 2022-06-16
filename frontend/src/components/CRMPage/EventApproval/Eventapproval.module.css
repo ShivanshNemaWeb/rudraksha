@@ -1,0 +1,33 @@
+.eventapproval__main {
+    margin-top: 2rem;
+}
+.eventapproval__shadow {
+    box-shadow: 0px 1px 10px;
+    width: 90vw;
+    margin: auto;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+.eventapproval__logo {
+    padding-right: 5px;
+}
+.eventapproval__form__heading {
+    font-weight: 600;
+    color: #fff;
+    font-size:x-large
+}
+.eventapproval__head {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    padding: 0px 5px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    background: linear-gradient(90deg, #5384a5 10%, #45a3b8  100%);
+    /* page-break-after: ; */
+}
+.eventapproval__btns {
+    display: flex;
+    align-items: center;
+}

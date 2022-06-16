@@ -1,0 +1,123 @@
+*{
+    padding: 0px;
+    margin: 0px;
+  }
+  
+  .HeaderCV{
+    
+    margin: 0px;
+    /* height: 40vh;
+    width: 100%; */
+  
+    /* min-height: 300px;
+    min-width: 100%; */
+  }
+  .HeaderCV img{
+  
+    width: 100%;
+    height: CVto;
+    
+  
+  }
+  
+  
+  
+  .MainCV1{
+  margin: 30px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  }
+  
+  .MainCV2{
+    margin: 30px;
+    position: relative;
+    top:20px;
+    }
+  
+  .MainCV3{
+      margin: 30px;
+      position: relative;
+      top:100px;
+      }
+  
+  .MainCV1 p{
+    position: relative;
+    top:20px
+    }
+  
+ 
+  
+  .MainCV2 p{
+    position: relative;
+    /* top:20px */
+    
+    }
+  
+  .MainCV2 ul{
+      list-style-type: decimal;
+      display: flex;
+      flex-direction: column;
+  }
+  
+  .MainCV2 li{
+    text-align: justify;
+    padding: 0 0 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+.MainCV2 span{
+    display: inline;
+    
+}
+
+.CV2span1{
+    color: skyblue;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.CV2span2{
+    color: darkmagenta;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.CV2span3{
+    color: lightsalmon;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.CV2span4{
+    color: red;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+.CV2span5{
+    color: violet;
+    font-size: 2rem;
+    font-weight: bolder;
+}
+  
+  .MainCV3 p{
+    position: relative;
+    top:10px
+    
+    }
+  
+  .MainCV3 img{
+    float: left;
+    margin: 10px;
+    max-width: 100%;
+    /* display: ; */
+    /* height: 400px;
+    width: 600px; */
+  }
+  
+  
+  p{
+    text-align: justify;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.5rem;
+  }

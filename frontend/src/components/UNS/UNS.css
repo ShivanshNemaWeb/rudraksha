@@ -1,0 +1,135 @@
+.Uns{
+    /* border:2px solid red; */
+    /* height: 400px; */
+    
+    margin-top: 40px;
+    
+    /* border: 2px black solid; */
+}
+
+.UNSheadline{
+    background: #00afc1;
+    overflow: hidden;
+    
+}
+.UNSheadline h2{
+    color: white;
+    font-size: 4rem;
+    margin: 20px 0 20px 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    
+}
+
+
+.FadeeffectUNS{
+	position: absolute;
+	
+	left: 5%;
+	height: 120px;
+	width: 100%;
+	background:linear-gradient(90deg, transparent 0%,#00afc1  5%, #00afc1 100%);
+	animation: myfirstUNS 	10s infinite;
+    animation-direction: normal;
+	z-index: 2;
+}
+
+@keyframes myfirstUNS{
+	
+
+	50%{
+		left:10%;
+	}
+
+	100%{
+		left:100%;
+	}
+}
+
+/* .UNSheadline h2:before{
+	content: "";
+	position: absolute;
+	right:120%;
+	width: 120%;
+	height: 4rem;
+	background: linear-gradient(90deg, transparent 0%,#17a2b8 5%, #17a2b8 100%);
+	animation: hanimate 10s linear forwards infinite;
+}
+
+@keyframes hanimate {
+
+	0%{
+		right:-20%;
+	}
+	50%{
+		right:-120%;
+	}
+	100%{
+		right:-20%;
+	}
+	
+} */
+
+
+
+
+.UNSpara{
+    margin: 20px;
+    background-color: whitesmoke;
+    
+    
+    /* border: 2px solid red; */
+
+}
+.UNSpara p{
+    /* font-family: 'Cookie', cursive; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+    text-align: justify;
+    font-weight: bold;
+}
+p{
+    /* font-family: 'Cookie', cursive; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    text-align: justify;
+}
+.UNSheadline{
+    margin-top: 20px;
+    /* border: 2px solid red; */
+    /* background-image: url('../../Images/UNS2.jpeg');
+    background-size: cover  ; */
+    text-align: center;
+    /* height:100px; */
+    padding: 5px;
+  
+   
+    
+    font-family: 'Roboto Serif', sans-serif;
+    font-weight: 700;
+  
+}
+
+
+@media only screen and ( max-width: 480px){
+    .UNSheadline h2{
+        font-size: 1.5rem;
+    }
+
+    .FadeeffectUNS{
+        height: 100px;
+    }
+
+    .UNSpara p{
+        font-size: 0.8rem;
+
+    }
+
+}
+
+
+
+
+
+
+

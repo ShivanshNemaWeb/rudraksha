@@ -1,0 +1,322 @@
+.SurveyMain {
+    
+    /* background-color: ; */
+    padding-bottom: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.SurveyHeader {
+    margin: 20px 0 30px 0;
+}
+
+.SurveyHeader img {
+
+    width: 100%;
+    height: auto;
+
+}
+
+.SurveyBody {
+
+    width: 100%;
+    margin: auto;
+    
+    
+  
+
+
+}
+
+
+
+
+.SurveyFormHeading {
+
+    text-align: center;
+    margin: 20px;
+    /* border: 3px solid black; */
+    position: relative;
+    top:20px;
+    right: 20px;
+}
+
+.SurveyFormHeading h2{
+    font-weight: bolder;
+}
+
+.SurveyFormHeading span{
+    display: inline;
+    margin: 2px;
+}
+
+
+.SurveyFormHeading span:nth-child(1){
+    color: orangered;
+}
+.SurveyFormHeading span:nth-child(2){
+    color: skyblue;
+}
+.SurveyFormHeading span:nth-child(3){
+    color: green;
+}
+
+
+.SurveyFormHeading img{
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+}
+
+.SurveyForm form {
+
+}
+
+.SurveyFormdiv1{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 5px 0 5px 0;
+}
+
+
+.SurveyFormdiv2{
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 5px 0 5px 0;
+}
+
+
+.SurveyFormdiv3{
+    width: 100%;
+   
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin: 5px 0 5px 0;
+}
+
+
+
+.surveyformdivs {
+    width: 30%;
+    height: 80px;
+    margin-left: 15px;
+    margin-right: 15px;
+    
+
+}
+
+.surveyformdivsradio {
+    width: 30%;
+    /* height: 50px; */
+    padding-top: 30px;
+    /* margin: auto; */
+
+    /* border: 2px solid black; */
+    text-align: center;
+
+}
+
+.FromDivHead1{
+    width:100%;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+
+.surveyformdivs input {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 10px;
+    border: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+
+
+.surveyformdivs input:focus
+{
+    border: 1px solid black;
+    background: transparent;
+}
+
+
+
+
+.surveyformdivs select {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    color: black;
+    margin-bottom: 10px;
+    /* border: 1px solid black; */
+    outline: none;
+    background: transparent;
+}
+
+.surveyformdivs select:focus{
+    background: transparent;
+}
+
+.surveyformdivs select option{
+    
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+}
+
+
+.surveyformdivs label {
+
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+
+}
+
+
+
+.surveyformdivsradio label {
+
+    margin-right: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+
+}
+
+.surveyformdivsradio input {
+    
+    padding: 10px 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    background: transparent;
+}
+
+
+.surveyformdivsradio button{
+    background: transparent;
+    margin-bottom: 20px;
+    border: 2px solid #97DBAE;
+    border-radius: 10%;
+    color: black;
+    font-weight: bolder;
+    background-color: #97DBAE;
+    box-shadow: 5px 5px 5px ; 
+}
+
+
+
+
+
+
+
+.surveyformdivs input {
+    border: 2px solid orangered;
+}
+
+.SurveyFormdiv1 .surveyformdivs select {
+    border: 2px solid orangered;
+}
+
+
+
+.SurveyFormdiv1 h4{
+    color: orangered;
+}
+
+.SurveyFormdiv2 .surveyformdivs select {
+    border: 2px solid skyblue;
+}
+
+.SurveyFormdiv2 h4{
+    color: skyblue;
+}
+
+.SurveyFormdiv3 .surveyformdivs select {
+    border: 2px solid green;
+}
+.SurveyFormdiv3 h4{
+    color: green;
+}
+
+.hr1{
+    border-bottom:2px solid ;
+    color: orangered;
+}
+
+.hr2{
+    border-bottom:2px solid ;
+    color: skyblue;
+}
+
+.hr3{
+    border-bottom:2px solid ;
+    color: green;
+}
+
+
+.submitbtnsf{
+    
+    text-align: center;
+}
+
+.submitbtnsf button{
+    
+}
+
+@media only screen and ( max-width: 480px){
+
+
+    .surveyformdivsradio{
+   
+        position: relative;
+        bottom: 30px;
+        
+        }
+    .surveyformdivs label{
+        font-size: 0.8rem;
+    }
+    .surveyformdivsradio label{
+        font-size: 0.8rem;
+    }
+
+    .spprice{
+        position: relative;
+        left: 68px;
+        bottom:100px;
+    }
+
+    .FromDivHead1 h4{
+        font-size: 1rem;
+    }
+
+    .surveyformdivs input::placeholder{
+        color: transparent;
+    }
+
+    .SurveyFormHeading h2 span{
+        font-size: 1.2rem;
+    }
+
+}

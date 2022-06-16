@@ -1,0 +1,158 @@
+.footer {
+    background-color: black;
+    clear: both;
+    position: relative;
+    z-index: 1;
+    height: 3em;
+    
+    color: white
+}
+
+.div1f span{
+   display: inline;
+   margin: 5px;
+}
+.div3f span{
+    display: inline;
+    margin: 5px;
+ }
+.fspan1{
+    color:#ff7722;
+}
+
+.fspan3{
+    color:green;
+}
+
+
+
+.MDB{
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1rem;
+}
+
+.fupperdiv{
+    color: white;
+}
+
+.FooterSection img{ 
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.FooterSection ul{
+    list-style: none;
+    display: flex;
+    flex-direction:row;
+    width: fit-content;
+    /* border: 2px solid red; */
+    width: 100%;
+    justify-content: space-evenly;
+    /* border: 2px solid blue; */
+    
+    
+}
+
+.FooterSection ul li{
+    color: white;
+    padding: 10px;
+    
+    position: relative;
+    right: 30px;
+}
+.FooterSection h6{
+    font-size: 1.5rem;
+}
+.FooterSection p{
+    font-size: 1rem;
+}
+
+.FooterSection li:first-child{
+    color: #ff7722;
+}
+
+.FooterSection li:nth-child(2){
+    color: blue;
+}
+
+.FooterSection li:nth-child(3){
+    color: red;
+}
+
+.FooterSection li:nth-child(4){
+    color: skyblue;
+}
+
+.FooterSection li:nth-child(5){
+    color: green;
+}
+
+.div1f{
+    text-align: center;
+    color: white;
+    /* border: 2px solid white; */
+    position: relative;
+    right: 80px;
+    bottom: 20px;
+}
+.div2f{
+    text-align: center;
+    color: white;
+}
+
+.div2f h6{
+
+    /* border: 2px solid white; */
+    width: fit-content;
+
+}
+
+.div3f{
+    text-align: center;
+    color: white;
+}
+
+.div4{
+    color: white;
+}
+
+@media only screen and (max-width: 480px){
+    .div1f{
+       
+       position: relative;
+       left: 5px;
+
+    }
+
+    .div1f ul li{
+     font-size: 0.8rem;
+     position: relative;
+    
+    }
+
+    .div2f{
+        
+        width: fit-content;
+    }
+
+    .div2f h6{
+position: relative;
+left: 50px;
+    }
+
+    .div3f{
+        
+        width: fit-content;
+    }
+
+   
+
+    .div3f  .div3para{
+        position: relative;
+        left: 30px;
+    }
+}

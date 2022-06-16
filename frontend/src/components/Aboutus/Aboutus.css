@@ -1,0 +1,87 @@
+.BodyAU{
+
+}
+
+
+.HeaderAU{
+  
+    margin: 0px;
+    /* height: 40vh;
+    width: 100%; */
+  
+    /* min-height: 300px;
+    min-width: 100%; */
+  }
+  .HeaderAU img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+  
+  
+  
+  .MainAU1{
+  margin-top: 30px;
+  /* display: flex;
+  flex-wrap: wrap; */
+  }
+  
+  .MainAU2{
+    /* margin: 30px; */
+    position: relative;
+    top:30px;
+    }
+  
+  .MainAU3{
+      /* margin: 30px; */
+      position: relative;
+      top:20px;
+      }
+  
+  .MainAU1 p{
+    position: relative;
+    top:5px
+    }
+  
+  .MainAU1 img{
+    float: left;
+    max-width: 100%;
+    
+    /* display: ; */
+    /* height: 400px;
+    width: 600px; */
+  }
+  
+  .MainAU1 p{
+    position: relative;
+    top:5px
+    
+    }
+  
+  .MainAU2 img{
+    float: right;
+    margin: 10px;
+    max-width: 100%;
+    /* display: ; */
+    /* height: 400px;
+    width: 600px; */
+  }
+  
+  
+  .MainAU3 p{
+    position: relative;
+    top:5px
+    
+    }
+  
+  .MainAU3 img{
+    float: left;
+    margin: 5px;
+    max-width: 100%;
+    /* display: ; */
+    /* height: 400px;
+    width: 600px; */
+  }
+  

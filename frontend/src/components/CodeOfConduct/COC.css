@@ -1,0 +1,22 @@
+.HeaderCoc{
+    
+    margin: 0px;
+    /* height: 40vh;
+    width: 100%; */
+  
+    /* min-height: 300px;
+    min-width: 100%; */
+  }
+  .HeaderCoc img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+.MainCoc{
+    background-color:rgb(0, 89, 255);
+    width: 100vw;
+    height: 100vh;
+    
+}  

@@ -1,0 +1,30 @@
+*{
+    padding: 0px;
+    margin: 0px;
+  }
+  .HeaderA4{
+  
+    margin: 0px;
+    /* height: 40vh;
+    width: 100%; */
+  
+    /* min-height: 300px;
+    min-width: 100%; */
+  }
+  .HeaderA4 img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+  .A1
+  {
+    margin: 20px;
+    margin-top: 40px;
+  }
+  .A2
+  {
+    margin: 20px;
+    margin-top: 40px;
+  }

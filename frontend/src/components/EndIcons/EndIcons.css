@@ -1,0 +1,95 @@
+.EndIconsMain{
+    /* border: 5px solid blue; */
+    /* margin-top: 20px; */
+    /* position: relative; */
+    padding: 20px 0 20px 0;
+    margin-bottom: 20px;
+}
+
+
+
+.Slider-Track{
+  display: flex;
+  width: calc(250px * 60);
+  animation: scroll 120s linear infinite;
+  
+}
+
+.Slider-Track:hover{
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+
+  0%{
+      transform: translateX(0);
+  }
+
+  100%{
+    transform: translateX(calc(-250px * 60));
+  }
+  
+}
+
+
+.Slide{
+  display: flex;
+  padding: 10px;
+  margin: 20px;
+  perspective: 100px;
+}
+
+.Slide .InternsImg{
+  transition: transform 5%;
+}
+
+
+.Linked{
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  border-radius: 100%;
+  top: 235px;
+  left:30px;
+  box-shadow: 2px 2px 2px;
+
+}
+
+
+
+
+/* Gradient Shadows */
+
+.EndIconsMain::before,
+.EndIconsMain::after{
+  background:linear-gradient(to right, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  content: '';
+  height: 100%;
+}
+
+
+@media only screen and ( max-width: 480px){
+
+  .EndIconsMain{
+    /* display: none; */
+    
+    margin-bottom: 5px;
+  }
+
+  .Slide img{
+    height: 200px;
+    width: 200px;
+  }
+
+  .Linked{
+   
+    display: none;
+    position: relative;
+    height: 5px;
+    width: 5px;
+    top: 10px;
+    left:10px;
+    
+  
+  }
+}

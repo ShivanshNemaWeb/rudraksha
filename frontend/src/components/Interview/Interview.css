@@ -1,0 +1,240 @@
+.InterviewHeader img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+
+.InterviewMain{
+    
+    
+    margin-top: 20px;
+}
+
+.Interviewdiv{
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+#Interviewdiv1subdiv1{
+  display: flex;
+  width: 70%;
+  /* border: 2px solid blue; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+#Interviewdiv1subdiv1 div{
+  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+#Interviewdiv1subdiv2{
+  width: 20%;
+  text-align: center;
+  
+  
+}
+
+
+
+.Interviewdiv2{
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.Interviewdiv2 div{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 30%;
+  font-weight: lighter;
+}
+
+
+.Interviewdiv3{
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+
+.Interviewdiv3 div{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 30%;
+  font-weight: lighter;
+}
+
+
+.Interviewdiv4{
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Interviewdiv4subdiv{
+  width: 45%;
+  
+}
+
+
+.Interviewdiv4subdiv div{
+  margin: 20px;
+  height: 150px;
+}
+
+.Interviewdiv4subdiv h5{
+  color: #2FA4FF;
+  font-weight: lighter;
+}
+.Interviewdiv4subdiv p{
+  font-weight: lighter;
+}
+
+.Interviewdiv4subdiv input{
+  margin: 0 25px 0 25px;
+}
+.Interviewdiv4subdiv label{
+  margin: 0 15px 0 15px;
+}
+
+.Interviewdiv5{
+  margin: 10px;
+  padding: 5px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.Interviewdiv5 div{
+  width: 30%;
+  margin: 5px;
+}
+
+.Interviewdiv5 label{
+  font-weight: lighter;
+}
+
+
+.Interviewdiv6{
+  margin: 30px 20px 30px 20px;
+  padding: 5px;
+  text-align: center;
+ 
+}
+
+
+.Interviewdiv6 button{
+  margin: 10px;
+}
+
+#upload-box {
+  position: relative;
+  border: 1px solid #2FA4FF;
+  height: 160px;
+  width: 170px;
+}
+
+#upload-box img{
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+}
+
+#upload-box input{
+
+  position: absolute;
+  top:180px;
+  left: 20px;
+}
+
+@media only screen and ( max-width: 480px){
+  .Interviewdiv{
+    display: block;
+  }
+
+  #Interviewdiv1subdiv1{
+    display: block;
+   
+    width:100%;
+  }
+
+  #Interviewdiv1subdiv1 div{
+    width: 100%;
+  }
+
+  #Interviewdiv1subdiv2{
+    display: block;
+    margin-bottom: 50px;
+  }
+
+  .Interviewdiv2{
+    display: block;
+
+  }
+
+  .Interviewdiv2 div{
+    width: 100%;
+  }
+
+
+  .Interviewdiv3{
+    display: block;
+  }
+
+  .Interviewdiv3 div{
+    width:100%;
+  }
+
+  .Interviewdiv4{
+    display: block;
+  }
+
+  .Interviewdiv4subdiv{
+    width:100%;
+    display: block;
+  }
+
+  .Interviewdiv4subdiv div{
+    width:100%;
+    margin:10px 0 10px 0;
+    
+    height: 220px;
+  }
+
+  /* .Interviewdiv4subdiv div input{
+    margin: 15px;
+  }
+  .Interviewdiv4subdiv div label{
+    margin: 15px;
+    position: relative;
+    left: 25px;
+    bottom: 5px;
+  } */
+
+  .Interviewdiv5{
+    display: block;
+  }
+
+  .Interviewdiv5 div{
+    width: 100%;
+  }
+
+
+
+}

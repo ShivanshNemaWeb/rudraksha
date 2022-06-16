@@ -1,0 +1,139 @@
+.RecHeader img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+
+.RecMain{
+    /* border: 5px solid black; */
+    
+    margin-top: 20px;
+}
+
+
+
+.Recdiv1{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.Recdiv1 div{
+    width: 30%;
+}
+
+
+.Recdiv2{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.Recdiv2 div{
+    width: 30%;
+}
+
+
+
+.Recdiv3{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.Recdiv3 div{
+    width: 30%;
+    margin: 5px;
+}
+
+.Recdiv1heading{
+    margin-top: 20px;
+}
+
+.Recdiv1heading h4{
+    font-weight: lighter;
+    color: #2FA4FF;
+}
+
+.Recdiv1heading hr{
+    color: #2FA4FF;
+}
+
+
+.RecMain input:focus{
+    border: #2FA4FF;
+    box-shadow:#2FA4FF;
+}
+
+.RecMain label{
+    font-weight: lighter;
+}
+
+.ResumeFile{
+    position: relative;
+    top:20px;
+}
+
+.Recdiv4{
+    margin: 20px;
+    text-align: center;
+}
+
+@media only screen and ( max-width: 480px){
+    .Recdiv1{
+         display: block;
+    }
+
+    .Recdiv1 div{
+        width: 100%;
+        margin: 10px 0 10px 0;
+    }
+
+  
+
+
+
+    .Recdiv2{
+        display: block;
+   }
+
+   .Recdiv2 div{
+       width: 100%;
+       margin: 10px 0 10px 0;
+   }
+
+
+   .Recdiv3{
+    display: block;
+}
+
+.Recdiv3 div{
+   width: 100%;
+   margin: 10px 0 10px 0;
+}
+
+
+
+.Recdiv4{
+    margin: 30px 30px 30px 30px;
+}
+
+.Recdiv4 button{
+    margin: 30px 30px 30px 30px;
+}
+}

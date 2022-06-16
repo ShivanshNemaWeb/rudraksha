@@ -1,0 +1,14 @@
+.crm__nav {
+    font-weight: bold;
+}
+.crm__img {
+    height:100vh;
+    background-image: url("./CRM.jpeg");
+     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 0rem;
+    padding:0rem;
+    /* width: 100vw; */
+    
+}

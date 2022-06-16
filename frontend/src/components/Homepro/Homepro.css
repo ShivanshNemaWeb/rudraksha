@@ -1,0 +1,315 @@
+
+
+.Projectheading {
+	
+	background: #00afc1;
+	/* min-height: 100vh; */
+    margin-top: 6px;
+	margin-bottom: 20px;
+	height: 150px;
+	align-items: center;
+	justify-content: center;
+	overflow: hidden;
+	/* border: 2px solid brown; */
+	/* background-color: black; */
+
+}
+.Projectheading h1{
+	width: fit-content;
+	/* border:2px solid red; */
+	margin: auto;
+	position: relative;
+	top:30px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bolder;
+	font-size: 70px;
+
+
+
+
+	
+}
+
+.Fadeeffect{
+	position: absolute;
+	
+	left: 30%;
+	height: 150px;
+	width: 40%;
+	background:linear-gradient(90deg, transparent 0%,#00afc1  5%, #00afc1 100%);
+	animation: myfirst 	10s infinite;
+    animation-direction: normal;
+	z-index: 2;
+}
+
+@keyframes myfirst{
+	
+
+	50%{
+		left:80%;
+	}
+
+	100%{
+		left:100%;
+	}
+}
+
+
+/* .Projectheading h1:before{
+	content: "";
+	position: absolute;
+	width: 120%;
+	height: 100%;
+	background: linear-gradient(90deg, transparent 0%,black 5%, #17a2b8 100%);
+	animation: hanimate 5s linear forwards infinite;
+} */
+
+/* @keyframes hanimate {
+
+	0%{
+		right:-120%;
+	}
+	50%{
+		right:-20%;
+	}
+	100%{
+		right:-120%;
+	}
+	
+} */
+
+
+
+	/* animation: fadeInAnimation ease 8s;
+            animation-iteration-count: infinite;
+            animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+} */
+
+
+
+
+/* Test Heading */
+
+
+
+
+
+
+/* Projects cards */
+
+
+
+/* .CardsProjectMain{
+    
+	border:2px solid red;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	
+
+} */
+
+/* .cards{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	border: 2px solid brown;
+}
+
+.card{
+	width: 18rem;
+} */
+.ProjectCarousel h5{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 20px;
+	width: fit-content;
+	font-weight: bolder;
+	
+	padding: 10px 0 10px 0;
+	margin: auto;
+
+}
+.ProjectCarousel p{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+}
+
+.ProjectCarousel span{
+	color: #07b39b;
+	font-weight: bolder;
+	display: inline;
+}
+
+.buttonpro{
+	position: relative;
+	left: 120px;
+	/* border:2px solid red; */
+}
+
+.ProjectCards1{
+	/* height: 400px; */
+	width: 100%;
+	/* background-color: aqua; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin:20px 0 20px 0 ;
+	/* justify-content: center; */
+  
+}
+
+.ProjectCards2{
+	/* height: 400px; */
+	width: 100%;
+	/* background-color:red; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin:20px 0 20px 0 ;
+}
+
+.ProjectCards3{
+	/* height: 400px; */
+	width: 100%;
+	/* background-color: blue; */
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+	margin:20px 0 20px 0 ;
+}
+
+.card{
+	/* height: 500px; */
+	width: 400px;
+	border: 1px solid black;
+}
+
+.card .ProLogo{
+	height: 50px;
+	width: 50px;
+	position: relative;
+	left: 150px;
+}
+
+
+@media only screen and (max-width: 480px){
+
+	.ProjectCards1{
+
+		flex-wrap: wrap;
+	}
+	.ProjectCards2{
+		flex-wrap: wrap;
+		
+	}
+	.ProjectCards3{
+		flex-wrap: wrap;
+		
+	}
+	.card{
+		margin: 20px;
+		/* border: 5px solid black; */
+	}
+
+	.Projectheading{
+		height: 250px;
+		
+	}
+	.Projectheading h1{
+		
+		text-align: center;
+	}
+}
+
+.card img{
+	border-radius: calc(2 * var(--borderWidth));
+}
+
+
+/* Border */
+
+/* .gradientb {
+    --borderWidth: 5px;
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .gradientb:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  
+  
+  @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  } */
+
+  @media only screen and ( max-width: 480px){
+    .Projectheading h1{
+        font-size: 2rem;
+		
+    }
+	.Projectheading{
+		height: 100px;
+	}
+
+	.Fadeeffect{
+		height: 100px;
+		width: 100%;
+	}
+
+	.card .ProLogo{
+		position: relative;
+		left:100px;
+	}
+	.card p{
+		font-size: 0.8rem;
+	}
+
+	.buttonpro{
+		position: relative;
+		left: 75px;
+	}
+
+	/* .card{
+		height: 300px;
+		width: 200px;
+	} */
+}
+
+  /* Button */
+
+/* .ProjectControl1{
+	position: relative;
+	right: 100px;
+} */

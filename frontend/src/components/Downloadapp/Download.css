@@ -1,0 +1,27 @@
+.MainDownload{
+    height: 300px;
+    width: 100%;
+    /* border: 2px solid red; */
+    margin: 40px 0 40px 0;
+    background-image: url(../../Images/appbanner.jpg);
+    background-size: cover;
+}
+
+@media only screen and (max-width: 600px){
+    .MainDownload{
+        width: 100%;
+        height: 100px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    p{
+        font-size: 0.8rem;
+        padding: 10px;
+    }
+    span{
+        font-size: 0.8rem;
+    }
+}

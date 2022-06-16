@@ -1,0 +1,179 @@
+.JoiningHeader img{
+  
+    width: 100%;
+    height: auto;
+    
+  
+  }
+
+.JoiningMain{
+    /* border: 5px solid black; */
+    
+    margin-top: 20px;
+}
+
+
+
+.Joiningdiv1{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+.Joiningdiv1 div{
+    width: 30%;
+}
+
+
+.Joiningdiv2{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.Joiningdiv2 div{
+    width: 30%;
+    margin: 10px;
+}
+
+
+
+.Joiningdiv3{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.Joiningdiv3 div{
+    width: 30%;
+    margin: 10px;
+}
+
+
+
+
+.Joiningdiv4{
+    
+    margin: 10px;
+    padding: 10px;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
+.Joiningdiv4 div{
+    width: 30%;
+    margin: 10px;
+}
+
+.Joiningdiv1heading{
+    margin-top: 20px;
+}
+
+.Joiningdiv1heading h4{
+    font-weight: lighter;
+    color: #2FA4FF;
+}
+
+.Joiningdiv1heading hr{
+    color: #2FA4FF;
+}
+
+
+.JoiningMain input:focus{
+    border: #2FA4FF;
+    box-shadow:#2FA4FF;
+}
+
+.JoiningMain label{
+    font-weight: lighter;
+}
+
+
+.JoiningdivTable{
+    padding: 20px;
+}
+
+.JoinTable td {
+    width:300px;
+}
+
+.JoinTable td input{
+  width: 100%;
+}
+.JoinTable td select{
+    width: 100%;
+    height: 20px;
+  }
+
+.JoinTableHead th{
+    font-weight: lighter;
+} 
+.JoinTable th{
+    font-weight: lighter;
+} 
+
+
+
+.JoinBtn{
+    margin: 20px;
+    text-align: center;
+}
+
+.JoinBtn button{
+    margin: 10px;
+}
+
+
+@media only screen and ( max-width: 480px){
+    .Joiningdiv1{
+        display: block;
+    }
+
+    .Joiningdiv1 div{
+        width: 100%;
+    }
+
+
+    .Joiningdiv2{
+        display: block;
+    }
+
+    .Joiningdiv2 div{
+        width: 100%;
+    }
+
+    .Joiningdiv3{
+        display: block;
+    }
+
+    .Joiningdiv3 div{
+        width: 100%;
+    }
+
+
+
+    .Joiningdiv4{
+        display: block;
+    }
+
+    .Joiningdiv4 div{
+        width: 100%;
+    }
+}

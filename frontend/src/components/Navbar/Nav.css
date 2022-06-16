@@ -1,0 +1,165 @@
+nav{
+    padding-top: 20px;
+}
+.mainnav{
+    /* text-align: center; */
+    z-index: 2;
+    
+}
+
+.navbar2{
+    margin: auto;
+    /* border: 5px solid black; */
+   
+   
+}
+
+.nav-item{
+    padding: 5px;
+}
+
+.nav-item:hover{
+    
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+}
+
+.nav-item a{
+    color: black;
+}
+
+
+/* DropDown */
+
+.dropbtn {
+  background-color:white;
+  color: black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  bottom:5px;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 300px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* .dropdown:hover .dropbtn {
+  background-color: #3e8e41;
+} */
+
+
+
+/* nav */
+
+.social {
+    position: fixed;
+    top: 30%;
+    z-index: 2;
+    /* border: 2px solid black; */
+    width:10px;
+  }
+  
+  .social ul {
+    list-style-type: none;
+    padding: 0;
+    transform: translatex(-270px);
+  }
+  
+  .social ul li {
+    display: block;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    text-align: right;
+    padding: 10px;
+    border-radius: 0 30px 30px 0;
+    transition: all 1s;
+  }
+  
+  .social ul li:hover {
+    transform: translatex(110px);
+  }
+  
+  .social ul li.twitter:hover {
+    background-color: #55acee;
+  }
+  
+  .social ul li.facebook:hover {
+    background-color: #3b5999;
+  }
+  
+  .social ul li.youtube:hover {
+    background-color: #dd4b39;
+  }
+  
+  .social ul li.instagram:hover {
+    background-color: #e4405f;
+  }
+  
+  .social ul li.linkedin:hover {
+    background-color: #0E76A8;
+  }
+
+  .social ul li a {
+    color: white;
+    text-decoration: none;
+  }
+  
+  .social ul li i {
+    text-align: center;
+    margin-left: 8px;
+    color: black;
+    background-color: white;
+    padding: 3px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 15px;
+    transform: rotate(0deg);
+    
+  }
+  
+  .social ul li:hover i {
+    transform: rotate(360deg);
+    transition: all 1s;
+  }
+
+  @media only screen and (max-width: 480px){
+    .social{
+      display: none;
+    }
+
+    
+ 
+  }
+
+  #downnav{
+    height: 20px;
+    width: 20px;
+  }
+
