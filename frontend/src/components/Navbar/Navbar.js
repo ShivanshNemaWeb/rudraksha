@@ -56,10 +56,11 @@ function Navbar() {
                       Vision
                     </a>
                   </li>
-                  <li className="nav-item dropdown">
-                    <div class="dropdown">
-                      <button class="dropbtn">Project</button>
-                      <div class="dropdown-content">
+                  
+                  <li className="nav-item text-center">
+                    <div className="dropdown">
+                      <button className="dropbtn">Project</button>
+                      <div className="dropdown-content">
                         <a href="/pro1">1. Art,Literature,Culture & Religion</a>
                         <a href="/pro2">2. Blood Donation</a>
                         <a href="/pro3">3. Drug De-Addiction</a>
@@ -78,6 +79,7 @@ function Navbar() {
                       </div>
                     </div>
                   </li>
+                  
                   <li className="nav-item dropdown">
                     <div class="dropdown">
                       <button class="dropbtn">Organigram</button>

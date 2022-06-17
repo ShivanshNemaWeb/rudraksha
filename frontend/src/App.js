@@ -56,7 +56,8 @@ import EventApproval from "./components/CRMPage/EventApproval/Eventapproval";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Reception from "./components/CRMPage/Reception/Reception";
 import AMS from "./components/CRMPage/AMS/AMS";
-
+import LMS from "./components/CRMPage/LMS/LMS";
+import DisplayLeave from "./components/CRMPage/LMS/DisplayLeave/DisplayLeave";
 function App() {
   return (
     <>
@@ -113,6 +114,9 @@ function App() {
         <Route path="/approve" component={EventApproval} />
         <Route path="/rms" component={Reception} />
         <Route path="/ams" component={AMS} />
+        <Route exact path="/lms" component={LMS} />
+        <Route exact path="/lms/displayleave" component={DisplayLeave} />
+
       </Switch>
     </>
   );

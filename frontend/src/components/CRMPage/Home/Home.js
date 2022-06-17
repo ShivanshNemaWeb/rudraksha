@@ -28,12 +28,13 @@ const Home = () => {
             <Nav.Link href="#features" className={styles.crm__nav}>
               PMS
             </Nav.Link>
-            <Nav.Link href="#pricing" className={styles.crm__nav}>
+            <Nav.Link href="/LMS" className={styles.crm__nav}>
               LMS
             </Nav.Link>
             <Nav.Link href="/AMS" className={styles.crm__nav}>
               AMS
             </Nav.Link>
+
             <Nav.Link href="/addEmployee" className={styles.crm__nav}>
               EMS
             </Nav.Link>
