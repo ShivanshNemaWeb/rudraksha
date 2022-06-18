@@ -9,7 +9,9 @@ function Organigram() {
     <>
     <HomeHeading/>
     <Navbar/>
+    <div className='parent'>
     <div className='MainOrgani'>
+    </div>
       
     </div>
     <FooterPagePro/>

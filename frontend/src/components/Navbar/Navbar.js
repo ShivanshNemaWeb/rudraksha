@@ -57,9 +57,9 @@ function Navbar() {
                     </a>
                   </li>
                   
-                  <li className="nav-item text-center">
-                    <div className="dropdown">
-                      <button className="dropbtn">Project</button>
+                  <li className="nav-item">
+                     <div className="dropdown">
+                      <li className="dropbtn2">Project</li>
                       <div className="dropdown-content">
                         <a href="/pro1">1. Art,Literature,Culture & Religion</a>
                         <a href="/pro2">2. Blood Donation</a>
@@ -77,14 +77,14 @@ function Navbar() {
                         <a href="/pro14">14. Voiceless Souls Protection</a>
                         <a href="/pro15">15. Woman Empowerment</a>
                       </div>
-                    </div>
+                     </div> 
                   </li>
                   
                   <li className="nav-item dropdown">
                     <div class="dropdown">
-                      <button class="dropbtn">Organigram</button>
+                    <li className="dropbtn2">Organiogram</li>
                       <div class="dropdown-content">
-                        <a href="/organigram">Organigram</a>
+                        <a href="/organigram">Organiogram</a>
                         <a href="/management">Management</a>
                         <a href="/coc">CodeOfConduct</a>
                       </div>
@@ -92,7 +92,7 @@ function Navbar() {
                   </li>
                   <li className="nav-item dropdown">
                     <div class="dropdown">
-                      <button class="dropbtn">Career</button>
+                    <li className="dropbtn2">Carrier</li>
                       <div class="dropdown-content">
                         <a href="/rec">Recruitments</a>
                         <a href="/loginI">Interview Form</a>
@@ -107,7 +107,7 @@ function Navbar() {
                   </li>
                   <li className="nav-item dropdown">
                     <div class="dropdown">
-                      <button class="dropbtn">Login</button>
+                    <li className="dropbtn2">Login</li>
                       <div class="dropdown-content">
                         <a href="/organigram">Numero</a>
                         <a href="/management">Employee</a>

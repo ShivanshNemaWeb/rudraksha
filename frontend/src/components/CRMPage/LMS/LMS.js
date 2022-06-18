@@ -20,15 +20,16 @@ import htmlToPdfmake from "html-to-pdfmake";
 import logo from "../Reports/logo";
 
 const LMS=()=>{
-    const leaves=["causalLeave","sickLeave","earnedLeave",
-    "compensatoryLeave / weeklyLeave","specialLeave",
-    "maternityLeave","paternityLeave","mourningLeave","emergencyLeave"];
+    const leaves=["casual leave","sick leave","earned leave",
+    "compensatory leave / weekly leave","special leave",
+    "maternity leave","paternity leave","mourning leave","emergency leave"];
     const [empLeave,setEmpLeave]=useState({
         typeOfLeave:"",
         to:"",
         from:"",
         remarks:""
     });
+    const [errorMessage,setErrMessage]=useState("");
     const updateLeave=(event)=>{
     setEmpLeave({
         ...empLeave,
@@ -53,9 +54,10 @@ remarks:empLeave.remarks
     },
   }
 ).then((res)=>{
-    console .log(res);
+    setErrMessage(res.data.message)
+    console.log(res);
 }).catch((err)=>{
-    console.log(err);
+    setErrMessage(err.data.message);
 })
     }
     return(
@@ -100,7 +102,6 @@ remarks:empLeave.remarks
                       name="typeOfLeave"
                       value={empLeave.leave}
                       onChange={updateLeave}>
-                      <option selected>Open this select menu</option>
                       {
                         leaves.map((leave)=>{
                             return(
@@ -108,6 +109,7 @@ remarks:empLeave.remarks
                             ) 
                         })
                       }
+                  <option selected>Open this select menu</option>
                     </select>
                   </Form.Group>
                   <Form.Group
@@ -168,6 +170,7 @@ remarks:empLeave.remarks
             </div>
 
           </Form>
+          {errorMessage && <div style={{ color: "red" }}>{errorMessage}</div>}
         </div>
       </div>
         </>
