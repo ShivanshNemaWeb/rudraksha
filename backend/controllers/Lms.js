@@ -180,6 +180,8 @@ const addLeaveApplication = async (req, res, next) => {
       empId: emp,
       lmsId: lmsOfEmp._id,
       remarks,
+      from,
+      to
     });
     await leave.save();
 
@@ -203,7 +205,7 @@ const approveLeaves = async (req, res, next) => {
     //updating employee leave to rejected/approved
     if (!leaveId || !status)
       throw new Error("leave id and status are mandatory fields!");
-    const updateEmpLeave = await Leave.findById(
+    const updateEmpLeave = await Leave.findByIdAndUpdate(
       leaveId,
       {
         status,

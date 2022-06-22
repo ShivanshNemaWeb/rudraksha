@@ -47,17 +47,17 @@ to: empLeave.to,
 remarks:empLeave.remarks
 }, 
 {
-    headers: {
-      Authorization: `Bearer ${JSON.parse(
-        localStorage.getItem("rudraksha")
-      )}`,
-    },
-  }
+  headers: {
+    Authorization: `Bearer ${JSON.parse(
+      localStorage.getItem("rudraksha")
+    )}`,
+  },
+}
 ).then((res)=>{
-    setErrMessage(res.data.message)
+    setErrMessage(res.data.error)
     console.log(res);
 }).catch((err)=>{
-    setErrMessage(err.data.message);
+    setErrMessage(err.error.message);
 })
     }
     return(
@@ -118,11 +118,11 @@ remarks:empLeave.remarks
                     controlId="validationFormik01"
                     className="mt-2"
                   >
-                    <Form.Label>To</Form.Label>
+                    <Form.Label>from</Form.Label>
                     <Form.Control
                       type="date"
-                      name="to"
-                      value={empLeave.to}
+                      name="from"
+                      value={empLeave.from}
                       onChange={updateLeave}
 
                     />
@@ -133,11 +133,11 @@ remarks:empLeave.remarks
                     controlId="validationFormik01"
                     className="mt-2"
                   >
-                    <Form.Label>From</Form.Label>
+                    <Form.Label>To</Form.Label>
                     <Form.Control
                       type="date"
-                      name="from"
-                      value={empLeave.from}
+                      name="to"
+                      value={empLeave.to}
                       onChange={updateLeave}
 
                     />

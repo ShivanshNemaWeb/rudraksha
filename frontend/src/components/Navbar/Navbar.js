@@ -57,7 +57,7 @@ function Navbar() {
                     </a>
                   </li>
                   
-                  <li className="nav-item">
+                  <li className="nav-item dropdown">
                      <div className="dropdown">
                       <li className="dropbtn2">Project</li>
                       <div className="dropdown-content">

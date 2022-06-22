@@ -19,6 +19,15 @@ const leavesSchema = new mongoose.Schema({
     default: "Pending",
     enum: ["Pending", "Approved", "Rejected"],
   },
+  from: {
+    type: Date,
+  },
+  to: {
+    type: Date
+  },
+  remarks:{
+    type: String,
+  },
   empId: {
     type: mongoose.Types.ObjectId,
     require: true,

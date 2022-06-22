@@ -154,9 +154,6 @@ nav{
     .social{
       display: none;
     }
-
-    
- 
   }
 
   #downnav{
@@ -165,5 +162,6 @@ nav{
   }
 
 .dropbtn2{
-  margin-top: 20px;
+  margin-top: 18px;
+  margin-right: 10px;
 }
