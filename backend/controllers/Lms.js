@@ -1,3 +1,4 @@
+const lodash= require('lodash');
 const Lms = require("../models/Lms");
 const Leave = require("../models/leaves");
 const addLeaveApplication = async (req, res, next) => {
@@ -205,15 +206,9 @@ const approveLeaves = async (req, res, next) => {
     //updating employee leave to rejected/approved
     if (!leaveId || !status)
       throw new Error("leave id and status are mandatory fields!");
-    const updateEmpLeave = await Leave.findByIdAndUpdate(
-      leaveId,
-      {
-        status,
-      },
-      {
-        new: true,
-      }
-    );
+      const updateEmpLeave = await Leave.findOneAndUpdate({_id: leaveId}, 
+        {status: status}, 
+        {new: true, runValidators: true});
     res.json({
       success: true,
       data: updateEmpLeave,
@@ -245,8 +240,46 @@ const getAllLeaves = async (req, res, next) => {
   }
 };
 
+//Employee Leaves
+const getEmployeeLeaves = async(req, res, next) => {
+  try{
+    
+    const empLeavesRem = await Lms.findOne({empId: req.emp._id});
+
+    if(empLeavesRem){
+
+      const empName = `${req.emp.firstname} ${req.emp.lastname}`;
+                             
+      res.json({
+        success: true,
+        data: empLeavesRem,
+        emp: {
+          doj: req.emp.createdAt,
+          empName,
+        }
+      });
+      
+
+    } else {
+      res.json({
+        success: false,
+        message: "No Record for the Employee in LMS !"
+      })
+    }
+
+  }catch(e){
+    console.log(e);
+    res.json({
+      success: false,
+      error: e.message
+    })
+  }
+}
+
+
 module.exports = {
   addLeaveApplication,
   approveLeaves,
   getAllLeaves,
+  getEmployeeLeaves
 };

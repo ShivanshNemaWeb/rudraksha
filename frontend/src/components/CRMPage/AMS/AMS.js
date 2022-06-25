@@ -242,7 +242,7 @@ const AMS = () => {
                 </Row>
               </div>
             </div>
-            <Button
+            <Button   
               onClick={sendOTP}
               type="post"
               className="mb-4"

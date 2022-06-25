@@ -56,11 +56,16 @@ const DisplayLeave = () => {
       });
   }, []);
   //Aprooving Leave
-  const approve=async(event)=>{
-    event.preventDefault();
+  const approve=async(id,from,to,status)=>{
+  if(status=="Rejected"){
+    alert("Leave is already rejected");
+  }
+  else{
 await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/lms/approveLeaves`, {
-    leaveId:"62aca48b8ac3f9122a87296f",
-    status:"Approved"
+    leaveId:id,
+    status:"Approved",
+    from:from,
+    to:to
 },
 { 
   headers: {
@@ -76,12 +81,18 @@ await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/lms/approveLeaves`, {
   console.log(err);
 })
   }
+  }
 //Reject Leave
-const reject=async(event)=>{
-  event.preventDefault();
+const reject=async(id,from,to,status)=>{
+  if(status=="Approved"){
+    alert("Leaves is already Approved");
+  }
+  else{
 await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/lms/approveLeaves`, {
-  leaveId:"62aca48b8ac3f9122a87296f",
-  status:"Rejected"
+  leaveId:id,
+  status:"Rejected",
+  from:from,
+  to:to
 },
 { 
 headers: {
@@ -96,6 +107,7 @@ console.log(res);
 .catch((err)=>{
 console.log(err);
 })
+  }
 }
   return(
     <>
@@ -125,7 +137,7 @@ console.log(err);
   <thead>
     <tr className="text-center">
       
-      <th scope="col">Employee Details</th>
+      <th scope="col">Employee</th>
       <th scope="col">Leave Type</th>
       <th scope="col">From</th>
       <th scope="col">To</th>
@@ -145,7 +157,7 @@ console.log(err);
           return(
             <tr key={leave.empId} className="text-center">
                 <td className="text-center">
-                <p><span className="text-primary">Name :</span>{`${employee.firstname} ${employee.lastname} `}</p>
+                <p>{`${employee.firstname} ${employee.lastname} `}</p>
                 {/* <p><span className="text-primary">Designation</span>:{employee.designation}</p>
                 <p><span className="text-primary">Gender</span>:{employee.gender}</p> */}
 
@@ -163,9 +175,15 @@ console.log(err);
               <p>{leave.status}</p>
                 </td>
                 <td>
-              <button className="btn btn-primary m-3" onClick={approve}>Aproove</button>
-              <button className="btn btn-danger" onClick={reject}>Reject</button>
+                 {
+    leave.status==="Approved"?(<p className="text-success">Approved</p>):(leave.status==="Rejected"?(<p className="text-danger">Rejected</p>):
+    (<>
+    <button className="btn btn-primary m-3" onClick={()=>approve(leave._id,leave.from,leave.to,leave.status)}>Aproove</button>
+              <button className="btn btn-danger" onClick={()=>reject(leave._id,leave.from,leave.to,leave.status)}>Reject</button>
 
+    </>))
+                 }
+              
                 </td>
             </tr>
           )

@@ -50,3 +50,7 @@
 .btn {
     align-items: center !important;
 }
+.LMS__info{
+    display: flex;
+    justify-content: space-between;
+}
