@@ -11,7 +11,7 @@
 .Slider-Track{
   display: flex;
   width: calc(250px * 60);
-  animation: scroll 120s linear infinite;
+  animation: scroll 120s infinite;
   
 }
 

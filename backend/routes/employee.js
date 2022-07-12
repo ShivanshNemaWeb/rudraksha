@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const multer = require("multer");
-const { adminAccess, authentication } = require("../middlewares/auth");
+const { adminAccess, authentication, onlyAdmin } = require("../middlewares/auth");
 const {
   AddEmployee,
   getAllEmployees,
@@ -46,7 +46,7 @@ router.post(
       maxCount: 1,
     },
   ]),
-  adminAccess,
+  onlyAdmin,
   AddEmployee
 );
 

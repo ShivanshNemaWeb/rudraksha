@@ -151,6 +151,13 @@ function EndIcons() {
                         <div className='Slide'>
                         <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/Graphic Designer/satarupa.jpg')} />
+                       
+                        </div>
+
+                        <div className='Slide'>
+                        <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/Graphic Designer/shiristy.jpeg')} />
+                       
 
                         </div>
                         <div className='Slide'>
@@ -261,7 +268,11 @@ https://www.linkedin.com/in/utplakshi-2b99a5190/"><img className='Linked' src={r
                         <img className="InternsImg" src={require('../../Interns(new)/UI_UX/vidhushi.jpg')} />
 
                         </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/manika-gupta-"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/manika gupta.jpg')} />
 
+                        </div>
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/aarushi-sethi-06081997"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/REMAINING/aarushi.jpg')} />
@@ -293,11 +304,8 @@ https://www.linkedin.com/in/deepanshu-m-7893a1118"><img className='Linked' src={
 
                         </div>
                     </div>
-                   
-
-            </div>
-        </div>
-    )
-}
-
-export default EndIcons
+                    </div>
+                    </div>
+                   )
+                   }
+                   export default EndIcons

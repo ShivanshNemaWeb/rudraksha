@@ -29,10 +29,13 @@ app.use("/api/vendor", vendorRoutes);
 app.use("/api/event", eventRoutes);
 app.use("/api/costsheet", costsheetRoutes);
 app.use("/api/", loginRoutes);
+app.use("/api", require("./routes/admin.routes"));
 app.use("/api/reception", receptionRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/lms", leaveRoutes);
 //http://localhost:5000/api/employees/getEmployees
+
+app.use("/api/reports", require("./reports/employeeDetails"))
 
 const ConnectDB = require("./database/connection");
 //connection to db

@@ -58,6 +58,8 @@ import Reception from "./components/CRMPage/Reception/Reception";
 import AMS from "./components/CRMPage/AMS/AMS";
 import LMS from "./components/CRMPage/LMS/LMS";
 import DisplayLeave from "./components/CRMPage/LMS/DisplayLeave/DisplayLeave";
+import LeaveReport from "./components/CRMPage/LMS/leaveReport/LeaveReport";
+
 function App() {
   return (
     <>
@@ -116,6 +118,7 @@ function App() {
         <Route path="/ams" component={AMS} />
         <Route exact path="/lms" component={LMS} />
         <Route exact path="/lms/displayleave" component={DisplayLeave} />
+        <Route exact path="/lms/leaveReport" component={LeaveReport} />
 
       </Switch>
     </>

@@ -25,6 +25,10 @@ const leavesSchema = new mongoose.Schema({
   to: {
     type: Date
   },
+  compLeavesDates: {
+    workFrom: Date,
+    workTo: Date
+  },
   remarks:{
     type: String,
   },

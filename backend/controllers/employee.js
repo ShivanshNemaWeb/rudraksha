@@ -8,16 +8,26 @@ const pdfTemplate = require("../reports/employee");
 const moment = require("moment");
 const pdf = require("html-pdf");
 const sharp = require("sharp");
+const _ = require("lodash");
 
 const AddEmployee = async (req, res, next) => {
   try {
+
     const exisitingEmp = await Employee.find({ email: req.body.email });
     console.log(exisitingEmp);
+    
     if (exisitingEmp.length > 0) {
       throw new Error("The Given Employee Already Exist");
     }
+
+    const firstname = _.startCase(req.body.firstname);
+    const middlename = _.startCase(req.body.middlename);
+    const lastname = _.startCase(req.body.lastname);
     const emp = new Employee({
       ...req.body,
+      firstname,
+      middlename,
+      lastname,
       vaccinationDoseOneAttachment: req.files.vaccination1[0].buffer,
       vaccinationDoseTwoAttachment: req.files.vaccination2[0].buffer,
       profilePic: await sharp(req.files.profile[0].buffer)
@@ -29,11 +39,15 @@ const AddEmployee = async (req, res, next) => {
     await emp.save();
     console.log(req.body.gender);
 
+    const doj = new Date(emp.createdAt);
+    const remCausalLeaves = 12 - (doj.getMonth() + 1);
+
     // creating a lms instance for each employee
     const lms = new Lms({
       empId: emp._id,
+      causalLeave: remCausalLeaves,
       maternityLeave: req.body.gender == "F" ? 150 : 0,
-      paternityLeave: req.body.gender == "M" ? 14 : 0,
+      paternityLeave: req.body.gender == "M" ? 60 : 0,
     });
     await lms.save();
     //creating a attendance instance/document for this employee which will

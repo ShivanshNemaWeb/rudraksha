@@ -1,23 +1,32 @@
-.LMS__main {
+.LMS__main{
+    padding: 20px;
+}
+.LeaveReport__info{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+.LeaveReport__main {
     margin-top: 2rem;
 }
 
-.LMS__shadow {
+.LeaveReport__shadow {
     box-shadow: 0px 1px 10px;
-    width: 80vw;
+    width: 90vw;
     margin: auto;
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
 }
 
-.LMS__heading {
+.LeaveReport__heading {
     color: #5384a5;
 }
 
-.LMS__head {
+.LeaveReport__head {
     display: flex;
     align-items: center;
-    width: 80vw;
+    width: 90vw;
     margin: auto;
     padding: 0px 5px;
     border-top-left-radius: 13px;
@@ -26,21 +35,21 @@
     ;
 }
 
-.LMS__logo {
+.LeaveReport__logo {
     padding-right: 5px;
 }
 
-.LMS__form__heading {
+.LeaveReport__form__heading {
     font-weight: 600;
     color: #fff;
     font-size: x-large
 }
 
-.LMS__form {
+.LeaveReport__form {
     margin: 1rem;
 }
 
-.LMS__form2 {
+.LeaveReport__form2 {
     width: 70vw;
     align-items: flex-end;
     margin: auto;
@@ -50,19 +59,19 @@
 .btn {
     align-items: center !important;
 }
-.LMS__info{
+.LeaveReport__info{
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     flex-wrap: wrap;
 }
-.LMS__model{
+.LeaveReport__model{
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
 }
-.LMS__modelForm{
+.LeaveReport__modelForm{
     display: flex;
     flex-direction: row;
 }

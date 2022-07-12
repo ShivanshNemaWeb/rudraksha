@@ -1,5 +1,8 @@
 const jwt = require("jsonwebtoken");
+
 const Employee = require("../models/employee");
+const Admin = require("../models/Admin_Rudraksha.model");
+const Director = require("../models/Director_Rudraksha.model");
 
 const adminAccess = async (req, res, next) => {
   try {
@@ -119,8 +122,69 @@ const costSheetApprovalAccess = async (req, res, next) => {
   }
 };
 
+async function onlyAdmin(req, res, next){
+  // accessing new table
+  try{
+    const authorization = req.headers.authorization;
+    
+    if (authorization) {
+      const token = authorization.slice(7, authorization.length);
+      const decode = jwt.verify(token, process.env.secret);
+      // console.log(decode.id, decode.email);
+
+      if(decode.id){
+        const emp = await Employee.findOne({_id: decode.id});
+        const admin = await Admin.findOne({empId: decode.id});
+        const director = await Director.findOne({empId: decode.id});
+        if(emp){
+          if(admin){
+            console.log("You are an Admin");
+            req.emp = emp;
+            next();
+          } else if(director) {
+            console.log("You are the Director of Rudraksha !!");
+            req.emp = emp;
+            next();
+          } else {
+            console.log("You are a normal Employee !!");
+            res.status(401).json({
+              success: false,
+              data: "Not an Admin",
+              message: "Not Authorized !!"
+            })
+          }
+        } else {
+          console.log("No Records Found !!");
+          res.status(400).json({
+            success: false,
+            data: "No records found for the ID in Employee !!",
+            message: "Not Authorized !!"
+          })
+        }
+      } else {
+        console.log("No ID to decode !!");
+        res.status(400).json({
+          status: false,
+          data: "No ID to be decoded",
+          message: "Cannot Proceed !!"
+        })
+      }
+
+    } else {
+      res.status(401).json({
+        status: false,
+        data: "No Authorization Provided !!",
+        message: "Cannot Proceed Further !!"
+      })
+    }
+  }catch(e){
+    console.log(e);
+  }
+}
+
 module.exports = {
   adminAccess,
   authentication,
   costSheetApprovalAccess,
+  onlyAdmin
 };
