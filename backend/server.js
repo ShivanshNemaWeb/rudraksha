@@ -34,8 +34,12 @@ app.use("/api/reception", receptionRoutes);
 app.use("/api/attendance", attendanceRoutes);
 app.use("/api/lms", leaveRoutes);
 //http://localhost:5000/api/employees/getEmployees
+app.use("/api/ivms", require("./routes/ivms.routes"));
 
+
+// reports apis
 app.use("/api/reports", require("./reports/employeeDetails"))
+app.use("/api/reports", require("./reports/ivms.reports"));
 
 const ConnectDB = require("./database/connection");
 //connection to db

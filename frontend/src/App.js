@@ -59,6 +59,8 @@ import AMS from "./components/CRMPage/AMS/AMS";
 import LMS from "./components/CRMPage/LMS/LMS";
 import DisplayLeave from "./components/CRMPage/LMS/DisplayLeave/DisplayLeave";
 import LeaveReport from "./components/CRMPage/LMS/leaveReport/LeaveReport";
+import VIMS from "./components/CRMPage/VIMS/VIMS";
+import VimsReport from "./components/CRMPage/VIMS/VimsReports/VimsReport";
 
 function App() {
   return (
@@ -119,6 +121,8 @@ function App() {
         <Route exact path="/lms" component={LMS} />
         <Route exact path="/lms/displayleave" component={DisplayLeave} />
         <Route exact path="/lms/leaveReport" component={LeaveReport} />
+        <Route exact path="/VIMS" component={VIMS} />
+        <Route exact path="/VIMS/VimsReport" component={VimsReport} />
 
       </Switch>
     </>

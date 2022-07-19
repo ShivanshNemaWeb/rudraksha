@@ -44,7 +44,7 @@ const LeaveReport=()=>{
     const [chart,setChart]=useState([]);
     const [id,setId]=useState("");
     const [nothing,setNothing]=useState("");
-    const [duration,setDuration]=useState("fortnightly");
+    const [duration,setDuration]=useState("Fortnightly");
     const month=[
       {
       month:"Jan",
@@ -192,8 +192,8 @@ const getChartGender=()=>{
   })
 }
 const setDu=(e)=>{
-  console.log(e.target.value.toLowerCase());
-  setDuration(e.target.value.toLowerCase());
+  console.log(e.target.value);
+  setDuration(e.target.value);
 }
 const setMonthIn=(event)=>{
   setMonthName(event.target.value)
@@ -688,6 +688,7 @@ return(
     display:"flex",
     flexDirection:"row",
     justifyContent:"center",
+    flexWrap:"wrap"
      }}>
     <Form.Group
                     as={Col}
@@ -778,11 +779,11 @@ return(
                       onChange={setDu}
                       
                       >
-                      <option selected>weekly</option>
-                      <option selected>fortnightly</option>
-                      <option selected>monthly</option>
-                      <option selected>half-yearly</option>
-                      <option selected>yearly</option>
+                      <option selected>Weekly</option>
+                      <option selected>Fortnightly</option>
+                      <option selected>Monthly</option>
+                      <option selected>Half-yearly</option>
+                      <option selected>Yearly</option>
                        
                   <option selected>Open this select menu</option>
                     </select>
@@ -790,7 +791,7 @@ return(
                 </div>
 
                 {
-                  duration==="monthly"?(<>
+                  duration==="Monthly"?(<>
                   <Form.Group
                                     as={Col}
                                     md="4"
@@ -813,7 +814,7 @@ return(
                                   <option selected>Open this select menu</option>
                                     </select>
                                   </Form.Group>
-                  </>):(duration==="quarterly"?(<>
+                  </>):(duration==="Quarterly"?(<>
                     <Form.Group
                                     as={Col}
                                     md="4"
@@ -837,7 +838,7 @@ return(
                                   <option selected>Open this select menu</option>
                                     </select>
                                   </Form.Group>
-                  </>):(duration==="half-yearly"?(<>
+                  </>):(duration==="Half-yearly"?(<>
                     <Form.Group
                                     as={Col}
                                     md="4"
@@ -857,7 +858,7 @@ return(
                                   <option selected>Open this select menu</option>
                                     </select>
                                   </Form.Group>
-                  </>):(duration==="weekly"?(<>
+                  </>):(duration==="Weekly"?(<>
                     <Form.Group
                                     as={Col}
                                     md="4"
@@ -868,7 +869,7 @@ return(
                                     <Form.Label>From</Form.Label>
                                     <input type="date" className="form-select" value={weekDate} onChange={upWeekDate}/>
                                   </Form.Group>
-                  </>):(duration==="fortnightly"?(<>
+                  </>):(duration==="Fortnightly"?(<>
                     <Form.Group
                                     as={Col}
                                     md="4"
@@ -878,7 +879,7 @@ return(
                                     <Form.Label>From</Form.Label>
                                     <input type="date" className="form-select" value={fortnightDate} onChange={upFortNightDate}/>
                                   </Form.Group>
-                  </>):(duration==="yearly"?(<>
+                  </>):(duration==="Yearly"?(<>
                     <Form.Group
                                     as={Col}
                                     md="4"
@@ -916,21 +917,21 @@ return(
                     />
                       </Form.Group>
                   {
-                    duration==="yearly"?(<>
+                    duration==="Yearly"?(<>
                   <button className="btn btn-primary mb-3" onClick={getChart}>Get Report</button>
-                    </>):(duration==="monthly"?(<>
+                    </>):(duration==="Monthly"?(<>
                       <button className="btn btn-primary mb-3" onClick={getChartMonthly}>Get Report</button>
 
-                    </>):(duration==="quarterly")?(<>
+                    </>):(duration==="Quarterly")?(<>
                       <button className="btn btn-primary mb-3" onClick={getChartQuarterly}>Get Report</button>
 
-                    </>):(duration==="half-yearly"?(<>
+                    </>):(duration==="Half-yearly"?(<>
                       <button className="btn btn-primary mb-3" onClick={getChartHalfYearly}>Get Report</button>
 
-                    </>):(duration==="weekly"?(<>
+                    </>):(duration==="Weekly"?(<>
                       <button className="btn btn-primary mb-3"  onClick={getChartWeekly}>Get Report</button>
 
-                    </>):(duration==="fortnightly"?(<>
+                    </>):(duration==="Fortnightly"?(<>
                       <button className="btn btn-primary mb-3" onClick={getChartFortnightly}>Get Report</button>
                     </>):(<></>)))))
                   }
@@ -942,21 +943,21 @@ return(
                         type==="Gender"?(<>
                         
                   <button className="btn btn-primary" onClick={getChartGender}>Get Report</button>
-         </>):(type==="All"?(duration==="yearly"?(<>
+         </>):(type==="All"?(duration==="Yearly"?(<>
           <button className="btn btn-primary mb-3" onClick={getChartAllYearly}>Get Report</button>
-         </>):(duration==="monthly"?(<>
+         </>):(duration==="Monthly"?(<>
           <button className="btn btn-primary mb-3" onClick={getChartAllMonthly}>Get Report</button>
 
-         </>):(duration==="quarterly"?(<>
+         </>):(duration==="Quarterly"?(<>
           <button className="btn btn-primary mb-3" onClick={getChartAllQuarterly}>Get Report</button>
 
-         </>):(duration==="half-yearly"?(<>
+         </>):(duration==="Half-yearly"?(<>
           <button className="btn btn-primary mb-3" onClick={getChartAllHalfYearly}>Get Report</button>
 
-         </>):(duration==="weekly"?(<> 
+         </>):(duration==="Weekly"?(<> 
           <button className="btn btn-primary mb-3"  onClick={getChartAllWeekly}>Get Report</button>
 
-         </>):(duration==="fortnightly"?(<>
+         </>):(duration==="Fortnightly"?(<>
           <button className="btn btn-primary mb-3" onClick={getChartAllFortnightly}>Get Report</button>
 
          </>):(<></>))))))):(<></>))
@@ -1014,7 +1015,7 @@ return(
                 <h6 className="line-hight-0 mb-3">{emp.designation}</h6>
                 <p className="font-weight-light line-hight-0">Joined on {emp.createdAt.split("T")[0]}</p>
                  {
-                  duration==="monthly"?(<>
+                  duration==="Monthly"?(<>
                 <p className="line-hight-0 font-weight-light mb-3">Month : {monthName}</p>
 
                   </>):(<></>)

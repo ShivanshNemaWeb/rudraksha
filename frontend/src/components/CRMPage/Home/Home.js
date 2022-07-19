@@ -41,6 +41,9 @@ const Home = () => {
             <Nav.Link href="/addVendor" className={styles.crm__nav}>
               VMS
             </Nav.Link>
+            <Nav.Link href="/VIMS" className={styles.crm__nav}>
+              VIMS
+            </Nav.Link>
             <Nav.Link href="/addEvent" className={styles.crm__nav}>
               Add Event
             </Nav.Link>

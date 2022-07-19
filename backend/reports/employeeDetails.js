@@ -139,17 +139,17 @@ router.post("/report-leaves-employee", onlyAdmin, async (req, res, next) => {
                             color: '#9966FF',                        
                         },
                         {
-                            label: "PAT_L",
+                            label: "ML",
                             value: lmsOfEMP.paternityLeaveDays,
                             color:'#827397',                      
                         },
                         {
-                            label: "MOU_L",
+                            label: "MOL",
                             value: lmsOfEMP.mourningLeaveDays,
                             color:'#92B4EC',                       
                         },
                         {
-                            label: "EMG_L",
+                            label: "EML",
                             value: lmsOfEMP.emergencyLeaveDays,
                             color:'#92B4EC',                       
                         },
@@ -183,17 +183,17 @@ router.post("/report-leaves-employee", onlyAdmin, async (req, res, next) => {
                             color: '#9966FF',                        
                         },
                         {
-                            label: "PAT_L",
+                            label: "PL",
                             value: lmsOfEMP.paternityLeaveDays,
                             color:'#827397',                      
                         },
                         {
-                            label: "MOU_L",
+                            label: "MOL",
                             value: lmsOfEMP.mourningLeaveDays,
                             color:'#92B4EC',                       
                         },
                         {
-                            label: "EMG_L",
+                            label: "EML",
                             value: lmsOfEMP.emergencyLeaveDays,
                             color:'#92B4EC',                       
                         },
@@ -320,12 +320,12 @@ router.post("/reports-monthly-allEmployees", onlyAdmin, async (req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#92B4EC',                       
                 }
@@ -419,7 +419,7 @@ router.post("/reports-employee-monthly", onlyAdmin, async (req, res) => {
                 color:'#FF5733',                         
             },
             {
-                label: "EL",
+                label: "EML",
                 value: lvs["earned leave"],
                 color: '#FFC0C0',                        
             },
@@ -444,12 +444,12 @@ router.post("/reports-employee-monthly", onlyAdmin, async (req, res) => {
                 color: '#827397',                      
             },
             {
-                label: "MOURN_L",
+                label: "MOL",
                 value: lvs["mourning leave"],
                 color: '#92B4EC',                       
             },
             {
-                label: "EMG",
+                label: "EML",
                 value: lvs["emergency leave"],
                 color: '#95CEEE'    
             }
@@ -619,12 +619,12 @@ router.post("/reports-quarterly-allEmployees", onlyAdmin, async (req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -808,12 +808,12 @@ router.post("/reports-employee-quarterly",onlyAdmin, async (req, res) => {
                     color: '#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs["mourning leave"],
                     color: '#92B4EC',                       
                 },
                 {
-                    label: "EMG",
+                    label: "EML",
                     value: lvs["emergency leave"],
                     color: '#95CEEE'    
                 }
@@ -963,12 +963,12 @@ router.post("/reports-halfYearly-allEmployees",onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1115,12 +1115,12 @@ router.post("/reports-employee-halfYearly",onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1237,12 +1237,12 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1358,12 +1358,12 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1485,12 +1485,12 @@ router.post("/reports-weekly-allEmployees",onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1612,12 +1612,12 @@ router.post("/reports-employee-weekly", onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMG",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1740,12 +1740,12 @@ router.post("/reports-14-allEmployees", onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }
@@ -1866,12 +1866,12 @@ router.post("/reports-employee-14", onlyAdmin, async(req, res) => {
                     color:'#827397',                      
                 },
                 {
-                    label: "MOURN_L",
+                    label: "MOL",
                     value: lvs.MOURN_L,
                     color:'#92B4EC',                       
                 },
                 {
-                    label: "EMGL",
+                    label: "EML",
                     value: lvs.EMG_L,
                     color:'#95CEEE'    
                 }

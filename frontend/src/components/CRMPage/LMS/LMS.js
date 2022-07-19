@@ -80,6 +80,7 @@ remarks:empLeave.remarks,
     setErr(res.data.success);
     console.log(res);
 }).catch((err)=>{
+  console.log(err)
     setErrMessage(err.error.message);
 })
     }
@@ -252,8 +253,7 @@ await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employee/getEmployees`
         </tr>
         <tr>
           <th scope="row">8</th>
-          <td>Emergency Lea
-            ve</td>
+          <td>Emergency Leave</td>
           <td>{remainingLeave.data.data.maxEmpLeaves.T_EMG_LEAVE}</td>
           <td>{remainingLeave.data.data.remainingLeaves.EMG_LEAVE}</td>
         </tr>
@@ -433,18 +433,18 @@ await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/employee/getEmployees`
                     textAlign: "center",
                   }}>Submit</button>))
                 }
-<button type="button" className="btn btn-outline-primary m-3 text-dark" data-toggle="modal" data-target="#exampleModalCenter"
+<button type="button" className="btn btn-outline-primary text-dark" data-toggle="modal" data-target="#exampleModalCenter"
 style={{
   // width:"100px",
-  // display: "block",
-  // margin: "auto",
-  // marginBottom:"0",
+  display: "block",
+  margin: "20px",
+  marginBottom:"0",
   left:"50%",
-  // textAlign: "center",
-
+  textAlign: "center",
+  marginTop:"20px"
 }}
 >
-  Apply Compensatory Leave
+  Apply CMP Leave
 </button>
 </div>
               <p className="text-danger" style={{
@@ -574,6 +574,7 @@ style={{
     </div>
   </div>
 </div>
+<p className="text-denger">{errorMessage}</p>
       </div>
       </div>
         </>
