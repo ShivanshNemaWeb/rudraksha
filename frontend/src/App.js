@@ -61,6 +61,9 @@ import DisplayLeave from "./components/CRMPage/LMS/DisplayLeave/DisplayLeave";
 import LeaveReport from "./components/CRMPage/LMS/leaveReport/LeaveReport";
 import VIMS from "./components/CRMPage/VIMS/VIMS";
 import VimsReport from "./components/CRMPage/VIMS/VimsReports/VimsReport";
+import NSM from "./components/CRMPage/NMS/NMS";
+import NMSReport from "./components/CRMPage/NMS/NMSReport/NMSReport";
+import Volunteership from "./components/CRMPage/NMS/Volunteership/Volunteership";
 
 function App() {
   return (
@@ -123,6 +126,9 @@ function App() {
         <Route exact path="/lms/leaveReport" component={LeaveReport} />
         <Route exact path="/VIMS" component={VIMS} />
         <Route exact path="/VIMS/VimsReport" component={VimsReport} />
+        <Route exact path="/NMS" component={NSM} />
+        <Route exact path="/NMS/NMSReport" component={NMSReport} />
+        <Route exact path="/NMS/Volunteership" component={Volunteership} />
 
       </Switch>
     </>

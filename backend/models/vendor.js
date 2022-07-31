@@ -45,7 +45,7 @@ const vendorSchema = mongoose.Schema({
   },
   UPIType: {
     type: String,
-    enum: ["Gpay", "Phone Pay", "Paytm", "Bheem"],
+    enum: ["Gpay", "Phone Pay", "Paytm", "BHIM"],
   },
   vendorType: {
     type: String,

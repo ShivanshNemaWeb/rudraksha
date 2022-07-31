@@ -26,8 +26,14 @@ const leavesSchema = new mongoose.Schema({
     type: Date
   },
   compLeavesDates: {
-    workFrom: Date,
-    workTo: Date
+    workFrom: {
+      type: Date,
+      default: null
+    },
+    workTo: {
+      type: Date,
+      default: null
+    },
   },
   remarks:{
     type: String,
@@ -36,13 +42,12 @@ const leavesSchema = new mongoose.Schema({
     type: mongoose.Types.ObjectId,
     require: true,
     ref: "Employee",
-    unique: true,
   },
   lmsId: {
     type: mongoose.Types.ObjectId,
     require: true,
     ref: "Lms",
-    unique: true,
+    // unique: true,
   },
 });
 const Leave = mongoose.model("Leaves master Table", leavesSchema);

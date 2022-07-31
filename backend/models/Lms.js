@@ -33,6 +33,7 @@ const LmsSchema = new mongoose.Schema({
     type: Number,
     default: 7,
   },
+  wfhPaternityLeave: Number,
   casualLeaveDates: [Object],
   sickLeaveDates: [Object],
   earnedLeaveDates: [Object],
@@ -42,6 +43,8 @@ const LmsSchema = new mongoose.Schema({
   paternityLeaveDates: [Object],
   mourningLeaveDates: [Object],
   emergencyLeaveDates: [Object],
+
+  // These are the original Leaves taken by the employee !!
   casualLeaveDays: {
     type: Number,
     default: 0,
@@ -77,6 +80,10 @@ const LmsSchema = new mongoose.Schema({
   emergencyLeaveDays: {
     type: Number,
     default: 0,
+  },
+  wfhPaternityLeaveDays: {
+    type: Number,
+    default: 0
   },
   remarks: String,
 });

@@ -32,7 +32,7 @@ router.get("/reports-designation-employee", onlyAdmin, async (req, res) => {
         // console.log(e);
         res.status(500).json({
             success: false,
-            data: e,
+            data: "Something went wrong !!",
             message: "Something went wrong !!"
         });
     }
@@ -121,39 +121,38 @@ router.post("/report-leaves-employee", onlyAdmin, async (req, res, next) => {
                         {
                             label: "CL",
                             value: lmsOfEMP.casualLeaveDays,
-                            color: '#ff6384',
+                            color: 'rgba(255, 99, 132, 0.2)'
                         },
                         {
                             label: "SL",
                             value: lmsOfEMP.sickLeaveDays,
-                            color: '#FF5733',                                         
+                            color: 'rgba(54, 162, 235, 0.2)'
                         },
                         {
                             label: "EL",
                             value: lmsOfEMP.earnedLeaveDays,
-                            color: '#FFC0C0',
+                            color: 'rgba(255, 206, 86, 0.2)'
                         },
                         {
                             label: "SPL",
                             value: lmsOfEMP.specialLeaveDays,
-                            color: '#9966FF',                        
+                            color: 'rgba(75, 192, 192, 0.2)'
                         },
                         {
                             label: "ML",
-                            value: lmsOfEMP.paternityLeaveDays,
-                            color:'#827397',                      
+                            value: lmsOfEMP.maternityLeaveDays,
+                            color: 'rgba(153, 102, 255, 0.2)'
                         },
                         {
-                            label: "MOL",
+                            label: "MRL",
                             value: lmsOfEMP.mourningLeaveDays,
-                            color:'#92B4EC',                       
+                            color: 'rgba(249, 206, 238, 0.2)'
                         },
                         {
                             label: "EML",
                             value: lmsOfEMP.emergencyLeaveDays,
-                            color:'#92B4EC',                       
+                            color: 'rgba(255, 159, 64, 0.2)'
                         },
-
 
                     ]
 
@@ -165,37 +164,37 @@ router.post("/report-leaves-employee", onlyAdmin, async (req, res, next) => {
                         {
                             label: "CL",
                             value: lmsOfEMP.casualLeaveDays,
-                            color: '#ff6384',
+                            color: 'rgba(255, 99, 132, 0.2)'
                         },
                         {
                             label: "SL",
                             value: lmsOfEMP.sickLeaveDays,
-                            color: '#FF5733',                                         
+                            color: 'rgba(54, 162, 235, 0.2)'
                         },
                         {
                             label: "EL",
                             value: lmsOfEMP.earnedLeaveDays,
-                            color: '#FFC0C0',
+                            color: 'rgba(255, 206, 86, 0.2)'
                         },
                         {
                             label: "SPL",
                             value: lmsOfEMP.specialLeaveDays,
-                            color: '#9966FF',                        
+                            color: 'rgba(75, 192, 192, 0.2)'
                         },
                         {
                             label: "PL",
                             value: lmsOfEMP.paternityLeaveDays,
-                            color:'#827397',                      
+                            color: 'rgba(153, 102, 255, 0.2)'
                         },
                         {
-                            label: "MOL",
+                            label: "MRL",
                             value: lmsOfEMP.mourningLeaveDays,
-                            color:'#92B4EC',                       
+                            color: 'rgba(249, 206, 238, 0.2)'
                         },
                         {
                             label: "EML",
                             value: lmsOfEMP.emergencyLeaveDays,
-                            color:'#92B4EC',                       
+                            color: 'rgba(255, 159, 64, 0.2)'
                         },
 
                     ]
@@ -236,7 +235,7 @@ router.post("/report-leaves-employee", onlyAdmin, async (req, res, next) => {
 
 // Monthly
 // All Employees
-router.post("/reports-monthly-allEmployees", onlyAdmin, async (req, res) => {
+router.post("/reports-monthly-allEmployees", async (req, res) => {
     const { month } = req.body;
     try {
         const lvs = {
@@ -292,42 +291,42 @@ router.post("/reports-monthly-allEmployees", onlyAdmin, async (req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -350,7 +349,7 @@ router.post("/reports-monthly-allEmployees", onlyAdmin, async (req, res) => {
 });
 
 // Particular Employee
-router.post("/reports-employee-monthly", onlyAdmin, async (req, res) => {
+router.post("/reports-employee-monthly", async (req, res) => {
     const { month, empId } = req.body;
     try {
         const leaves = await Leaves.find({ status: "Approved", empId });
@@ -416,42 +415,42 @@ router.post("/reports-employee-monthly", onlyAdmin, async (req, res) => {
             {
                 label: "SL",
                 value: lvs["sick leave"],
-                color:'#FF5733',                         
+                color: 'rgba(54, 162, 235, 0.2)',
             },
             {
-                label: "EML",
+                label: "EL",
                 value: lvs["earned leave"],
-                color: '#FFC0C0',                        
+                color: 'rgba(255, 206, 86, 0.2)',
             },
             {
-                label: "COMPL",
+                label: "CML",
                 value: lvs["compensatory leave"],
-                color: '#4BC0C0',                                                
+                color: 'rgba(75, 192, 192, 0.2)',
             },
             {
                 label: "SPL",
                 value: lvs["special leave"],
-                color: '#9966FF',                        
+                color: 'rgba(153, 102, 255, 0.2)',
             },
             {
                 label: "ML",
                 value: lvs["maternity leave"],
-                color: '#FF9F40',                        
+                color: 'rgba(255, 159, 64, 0.2)',
             },
             {
                 label: "PL",
                 value: lvs["paternity leave"],
-                color: '#827397',                      
+                color: 'rgba(130, 115, 151, 0.2)',
             },
             {
-                label: "MOL",
+                label: "MRL",
                 value: lvs["mourning leave"],
-                color: '#92B4EC',                       
+                color: 'rgba(146, 180, 236, 0.2)',
             },
             {
                 label: "EML",
                 value: lvs["emergency leave"],
-                color: '#95CEEE'    
+                color: 'rgba(249, 206, 238, 0.2)'
             }
         ]
         res.status(200).json({
@@ -471,7 +470,7 @@ router.post("/reports-employee-monthly", onlyAdmin, async (req, res) => {
 
 // Quarterly
 // All Employees
-router.post("/reports-quarterly-allEmployees", onlyAdmin, async (req, res) => {
+router.post("/reports-quarterly-allEmployees", async (req, res) => {
     const { quarter } = req.body;
     try {
         let lvs = {
@@ -591,42 +590,42 @@ router.post("/reports-quarterly-allEmployees", onlyAdmin, async (req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -653,7 +652,7 @@ router.post("/reports-quarterly-allEmployees", onlyAdmin, async (req, res) => {
 });
 
 // Particular Employee
-router.post("/reports-employee-quarterly",onlyAdmin, async (req, res) => {
+router.post("/reports-employee-quarterly", async (req, res) => {
     // if(leaves[i].from.getMonth() === 0 || leaves[i].from.getMonth() === 1 || leaves[i].from.getMonth() === 2 || leaves[i].from.getMonth() === 3)
     const { quarter, empId } = req.body;
     try {
@@ -780,42 +779,42 @@ router.post("/reports-employee-quarterly",onlyAdmin, async (req, res) => {
                 {
                     label: "SL",
                     value: lvs["sick leave"],
-                    color:'#FF5733',                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs["earned leave"],
-                    color: '#FFC0C0',                        
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs["compensatory leave"],
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs["special leave"],
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs["maternity leave"],
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs["paternity leave"],
-                    color: '#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs["mourning leave"],
-                    color: '#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs["emergency leave"],
-                    color: '#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             // console.log(dat);
@@ -846,7 +845,7 @@ router.post("/reports-employee-quarterly",onlyAdmin, async (req, res) => {
 
 // Half Yearly
 // All Employees
-router.post("/reports-halfYearly-allEmployees",onlyAdmin, async(req, res) => {
+router.post("/reports-halfYearly-allEmployees", async(req, res) => {
     const {half} = req.body;
     try{
         let lvs = {
@@ -935,42 +934,42 @@ router.post("/reports-halfYearly-allEmployees",onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             
@@ -998,7 +997,7 @@ router.post("/reports-halfYearly-allEmployees",onlyAdmin, async(req, res) => {
 });
 
 // Particular Employee
-router.post("/reports-employee-halfYearly",onlyAdmin, async(req, res) => {
+router.post("/reports-employee-halfYearly", async(req, res) => {
     const {empId, half} = req.body;
     try{
         let lvs = {
@@ -1087,42 +1086,42 @@ router.post("/reports-employee-halfYearly",onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1150,9 +1149,8 @@ router.post("/reports-employee-halfYearly",onlyAdmin, async(req, res) => {
 
 // Yearly
 // All Employees
-router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
+router.post("/reports-yearly-allEmployees", async(req, res) => {
     const {year} = req.body;
-    console.log(year);
     // const dt = new Date()
     // dt.getFullYear
     try{
@@ -1209,42 +1207,42 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                   color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1271,8 +1269,7 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
 });
 
 // Particular Employee
-// Year & Emp ID
-router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
+router.post("/reports-yearly-allEmployees", async(req, res) => {
     const {year, empId} = req.body;
     // const dt = new Date()
     // dt.getFullYear
@@ -1330,42 +1327,42 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1394,7 +1391,7 @@ router.post("/reports-yearly-allEmployees",onlyAdmin, async(req, res) => {
 
 // Weekly
 // All Employees
-router.post("/reports-weekly-allEmployees",onlyAdmin, async(req, res) => {
+router.post("/reports-weekly-allEmployees", async(req, res) => {
     // YYYY-MM-DD
     const {start} = req.body;
     const startDate = new Date(start);
@@ -1457,42 +1454,42 @@ router.post("/reports-weekly-allEmployees",onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1520,7 +1517,7 @@ router.post("/reports-weekly-allEmployees",onlyAdmin, async(req, res) => {
 });
 
 // Particular Employee
-router.post("/reports-employee-weekly", onlyAdmin, async(req, res) => {
+router.post("/reports-employee-weekly", async(req, res) => {
     // YYYY-MM-DD
     const {start, empId} = req.body;
     const startDate = new Date(start);
@@ -1584,42 +1581,42 @@ router.post("/reports-employee-weekly", onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1649,7 +1646,7 @@ router.post("/reports-employee-weekly", onlyAdmin, async(req, res) => {
 
 // For some 14 days
 // All Employees
-router.post("/reports-14-allEmployees", onlyAdmin, async(req, res) => {
+router.post("/reports-14-allEmployees", async(req, res) => {
     // YYYY-MM-DD
     const {start} = req.body;
     const startDate = new Date(start);
@@ -1712,42 +1709,42 @@ router.post("/reports-14-allEmployees", onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({
@@ -1775,7 +1772,7 @@ router.post("/reports-14-allEmployees", onlyAdmin, async(req, res) => {
 });
 
 // Particular Employee
-router.post("/reports-employee-14", onlyAdmin, async(req, res) => {
+router.post("/reports-employee-14", async(req, res) => {
     // YYYY-MM-DD
     const {start, empId} = req.body;
     const startDate = new Date(start);
@@ -1838,42 +1835,42 @@ router.post("/reports-employee-14", onlyAdmin, async(req, res) => {
                 {
                     label: "SL",
                     value: lvs.SL,
-                    color: '#FF5733',                                         
+                    color: 'rgba(54, 162, 235, 0.2)',
                 },
                 {
                     label: "EL",
                     value: lvs.EL,
-                    color: '#FFC0C0',
+                    color: 'rgba(255, 206, 86, 0.2)',
                 },
                 {
-                    label: "COMPL",
+                    label: "CML",
                     value: lvs.COMP_L,
-                    color: '#4BC0C0',                                                
+                    color: 'rgba(75, 192, 192, 0.2)',
                 },
                 {
                     label: "SPL",
                     value: lvs.SPL_L,
-                    color: '#9966FF',                        
+                    color: 'rgba(153, 102, 255, 0.2)',
                 },
                 {
                     label: "ML",
                     value: lvs.MAT_L,
-                    color: '#FF9F40',                        
+                    color: 'rgba(255, 159, 64, 0.2)',
                 },
                 {
                     label: "PL",
                     value: lvs.PAT_L,
-                    color:'#827397',                      
+                    color: 'rgba(130, 115, 151, 0.2)',
                 },
                 {
-                    label: "MOL",
+                    label: "MRL",
                     value: lvs.MOURN_L,
-                    color:'#92B4EC',                       
+                    color: 'rgba(146, 180, 236, 0.2)',
                 },
                 {
                     label: "EML",
                     value: lvs.EMG_L,
-                    color:'#95CEEE'    
+                    color: 'rgba(249, 206, 238, 0.2)'
                 }
             ];
             res.status(200).json({

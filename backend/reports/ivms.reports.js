@@ -5,12 +5,17 @@ const {onlyAdmin} = require("../middlewares/auth");
 
 const ivmsModel = require("../models/ivms.model");
 
+const professionalSectors = ["Frontend Web Developer", "Backend Web Developer", "FullStack Web Developer", "Graphic Designer", "Linux Administrator", "App Developer", "UI/UX Developer", "Social Worker", "Content Writer", "Digital Marketing Expert", "XML Expert", "UNSDG Expert", "MSW Expert", "MPhil Expert", "Experienced SW", "PHD Expert", "Brand Master Expert", "Administrative Expert", "Subject Matter Expert"];
+
 router.post("/reports-monthly-iv", onlyAdmin, async(req, res) => {
     const {month, year} = req.body;
     try{
         const allIVs = await ivmsModel.find();
+        
         let interns = 0; 
         let volunteers = 0;
+        let advisors = 0;
+        
         if(allIVs.length > 0){
             for(let i = 0; i < allIVs.length; i++){
                 if(allIVs[i].startDate.getMonth() === Number(month) && allIVs[i].startDate.getFullYear() === Number(year)){
@@ -19,6 +24,8 @@ router.post("/reports-monthly-iv", onlyAdmin, async(req, res) => {
                         interns++;
                     } else if(allIVs[i].role === "Volunteer") {
                         volunteers++;
+                    } else if(allIVs[i].role === "Advisor"){
+                        advisors++;
                     }
                 }
             }
@@ -28,13 +35,19 @@ router.post("/reports-monthly-iv", onlyAdmin, async(req, res) => {
                 data: [{
                     label: "Intern",
                     value: interns,
-                    color: "#395B64"
+                    color: "#513252"
                 },
                 {
                    label: "Volunteer",
                    value: volunteers,
-                   color: "#E7F6F2" 
-                }],
+                   color: "#293462" 
+                },
+                {
+                    label: "Advisor",
+                    value: advisors,
+                    color: "#D61C4E" 
+                 }    
+                ],
                 message: `Your Data is ready for month ${month+1} !!`
             });
             return -1;
@@ -60,8 +73,11 @@ router.post("/reports-quarterly-iv", onlyAdmin, async(req, res) => {
     const {quarter, year} = req.body;
     try{
         const allIVs = await ivmsModel.find();
+
         let interns = 0; 
         let volunteers = 0;
+        let advisors = 0;
+
         if(allIVs.length > 0){
             for(let i = 0; i < allIVs.length; i++){
                 if(Number(quarter) === 0){
@@ -70,6 +86,8 @@ router.post("/reports-quarterly-iv", onlyAdmin, async(req, res) => {
                             interns++;
                         } else if(allIVs[i].role === "Volunteer") {
                             volunteers++;
+                        } else if(allIVs[i].role === "Advisor"){
+                            advisors++;
                         }
                     }
                 } else if(Number(quarter) === 1){
@@ -78,6 +96,8 @@ router.post("/reports-quarterly-iv", onlyAdmin, async(req, res) => {
                             interns++;
                         } else if(allIVs[i].role === "Volunteer") {
                             volunteers++;
+                        } else if(allIVs[i].role === "Advisor"){
+                            advisors++;
                         }
                     }
                 } else if(Number(quarter) === 2){
@@ -86,6 +106,8 @@ router.post("/reports-quarterly-iv", onlyAdmin, async(req, res) => {
                             interns++;
                         } else if(allIVs[i].role === "Volunteer") {
                             volunteers++;
+                        } else if(allIVs[i].role === "Advisor"){
+                            advisors++;
                         }
                     }
                 }
@@ -96,13 +118,19 @@ router.post("/reports-quarterly-iv", onlyAdmin, async(req, res) => {
                 data: [{
                     label: "Intern",
                     value: interns,
-                    color: "#395B64"
+                    color: "#513252"
                 },
                 {
                    label: "Volunteer",
                    value: volunteers,
-                   color: "#E7F6F2" 
-                }],
+                   color: "#293462" 
+                },
+                {
+                    label: "Advisor",
+                    value: advisors,
+                    color: "#D61C4E" 
+                 }    
+                ],
                 message: `Your Data is ready for Q${Number(quarter)+1} !!`
             });
             return -1;
@@ -129,8 +157,11 @@ router.post("/reports-yearly-iv", onlyAdmin, async(req, res) => {
     const {year} = req.body;
     try{
         const allIVs = await ivmsModel.find();
+
         let interns = 0; 
         let volunteers = 0;
+        let advisors = 0;
+
         if(allIVs.length > 0){
             for(let i = 0; i < allIVs.length; i++){
                 if(allIVs[i].startDate.getFullYear() === Number(year)){
@@ -138,6 +169,8 @@ router.post("/reports-yearly-iv", onlyAdmin, async(req, res) => {
                         interns++;
                     } else if(allIVs[i].role === "Volunteer") {
                         volunteers++;
+                    } else if(allIVs[i].role === "Advisor"){
+                        advisors++;
                     }
                 }
             }
@@ -147,13 +180,19 @@ router.post("/reports-yearly-iv", onlyAdmin, async(req, res) => {
                 data: [{
                     label: "Intern",
                     value: interns,
-                    color: "#395B64"
+                    color: "#513252"
                 },
                 {
                    label: "Volunteer",
                    value: volunteers,
-                   color: "#E7F6F2" 
-                }],
+                   color: "#293462" 
+                },
+                {
+                    label: "Advisor",
+                    value: advisors,
+                    color: "#D61C4E" 
+                 }    
+                ],
                 message: `Your Data is ready for YEAR-${Number(year)} !!`
             });
             return -1;
@@ -169,8 +208,8 @@ router.post("/reports-yearly-iv", onlyAdmin, async(req, res) => {
     }catch(e){
         res.status(500).json({
             success: false,
-            data: "Gone wrong !",
-            message: e
+            data: "Something went wrong !",
+            message: "Something went wrong !"
         })
     }
 });
@@ -178,12 +217,14 @@ router.post("/reports-yearly-iv", onlyAdmin, async(req, res) => {
 router.post("/reports-monthly-professionalSector", onlyAdmin, async(req, res) => {
     const {month, year} = req.body;
     try{
-        const professionalSectors = ["Frontend Web Developer", "Backend Web Developer", "FullStack Web Developer", "Graphic Designer", "Linux Administrator", "App Developer", "UI/UX Developer", "Social Worker"];
         // console.log(professionalSectors);
         let dat = {};
         professionalSectors.forEach(sector => {
             dat[sector] = 0;
         });
+        
+        // console.log(dat);
+
         const allIVs = await ivmsModel.find();
         
         if(allIVs.length > 0){
@@ -237,7 +278,6 @@ router.post("/reports-monthly-professionalSector", onlyAdmin, async(req, res) =>
 router.post("/reports-quarterly-professionalSector", onlyAdmin, async(req, res) => {
     const {quarter, year} = req.body;
     try{
-        const professionalSectors = ["Frontend Web Developer", "Backend Web Developer", "FullStack Web Developer", "Graphic Designer", "Linux Administrator", "App Developer", "UI/UX Developer", "Social Worker"];
         // console.log(professionalSectors);
         let dat = {};
         professionalSectors.forEach(sector => {
@@ -313,7 +353,6 @@ router.post("/reports-quarterly-professionalSector", onlyAdmin, async(req, res) 
 router.post("/reports-yearly-professionalSector", onlyAdmin, async(req, res) => {
     const {year} = req.body;
     try{
-        const professionalSectors = ["Frontend Web Developer", "Backend Web Developer", "FullStack Web Developer", "Graphic Designer", "Linux Administrator", "App Developer", "UI/UX Developer", "Social Worker"];
         // console.log(professionalSectors);
         let dat = {};
         professionalSectors.forEach(sector => {

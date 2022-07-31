@@ -3,16 +3,16 @@ const _ = require("lodash");
 
 async function addToIVMS(req, res, next){
     const {middlename, fathername, mothername, dob, educationalStatus, gender, professionalSector, degree, emailId, phoneNo, address, role, startDate, endDate, stipend, panCard, aadharCard} = req.body;
-    console.log(req.body.data);
+
     const firstname = _.startCase(req.body.firstname);
     let mName = _.startCase(middlename);
     const lastname = _.startCase(req.body.lastname);
     const dad = _.startCase(fathername);
     const mom = _.startCase(mothername);
 
-    if(!fathername || !mothername || !gender || !dob || !educationalStatus || !degree || !professionalSector || !emailId || !phoneNo || !address || !role || !startDate || !endDate || !stipend || !firstname || !lastname){
+    if(!middlename || !fathername || !mothername || !gender || !dob || !educationalStatus || !degree || !professionalSector || !emailId || !phoneNo || !address || !role || !startDate || !endDate || !stipend ){
         throw new Error("Please Provide all the necessary fields !!");
-    } 
+    }
 
     try{
         const ivms = await ivmsModel.findOne({emailId: req.body.emailId});

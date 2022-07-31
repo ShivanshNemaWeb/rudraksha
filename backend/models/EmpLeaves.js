@@ -5,7 +5,7 @@ const maxLeaves = {
     // COMPL_WEEKL: 
     SPL_LEAVE: 14,
     MATERNITY_LEAVE: 150,
-    PATERNITY_LEAVE: 60,
+    PATERNITY_LEAVE: 14,
     PATL_WFH: 60,
     MOURN_LEAVE: 15,
     EMG_LEAVE: 7

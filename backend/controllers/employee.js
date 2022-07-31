@@ -1,6 +1,8 @@
 const Employee = require("../models/employee");
 const Attendance = require("../models/attendance");
 const Lms = require("../models/Lms");
+const empTrackModel = require("../models/nms-empTrack.model");
+
 const schedule = require("node-schedule");
 const fs = require("fs");
 const path = require("path");
@@ -12,10 +14,8 @@ const _ = require("lodash");
 
 const AddEmployee = async (req, res, next) => {
   try {
-
     const exisitingEmp = await Employee.find({ email: req.body.email });
-    console.log(exisitingEmp);
-    
+    // console.log(exisitingEmp);
     if (exisitingEmp.length > 0) {
       throw new Error("The Given Employee Already Exist");
     }
@@ -23,6 +23,7 @@ const AddEmployee = async (req, res, next) => {
     const firstname = _.startCase(req.body.firstname);
     const middlename = _.startCase(req.body.middlename);
     const lastname = _.startCase(req.body.lastname);
+
     const emp = new Employee({
       ...req.body,
       firstname,
@@ -36,18 +37,30 @@ const AddEmployee = async (req, res, next) => {
         .toBuffer(),
       cv: req.files.cv[0].buffer,
     });
+    
     await emp.save();
-    console.log(req.body.gender);
-
+    
+    // console.log(req.body.gender);
     const doj = new Date(emp.createdAt);
-    const remCausalLeaves = 12 - (doj.getMonth() + 1);
+    /////////////////////////////////////////////////////////
+    // creating a tracker instance for each employee
+    const newTracker = new empTrackModel({
+      empId: emp._id,
+      currentDate: doj
+    });
+
+    const saveTracker = await newTracker.save();
+    console.log(saveTracker);
+    /////////////////////////////////////////////////////////
 
     // creating a lms instance for each employee
+    const remCausalLeaves = 12 - (doj.getMonth() + 1);
     const lms = new Lms({
       empId: emp._id,
       causalLeave: remCausalLeaves,
       maternityLeave: req.body.gender == "F" ? 150 : 0,
-      paternityLeave: req.body.gender == "M" ? 60 : 0,
+      paternityLeave: req.body.gender == "M" ? 14 : 0,
+      wfhPaternityLeave: req.body.gender == "M" ? 60 : 0,
     });
     await lms.save();
     //creating a attendance instance/document for this employee which will
@@ -143,6 +156,7 @@ const getAllEmployees = async (req, res, next) => {
         // designation: '',
         educationStatus: 0,
         experience: 0,
+        password: 0,
         // email: 0,
         // phone: 0,
         Dob: 0,

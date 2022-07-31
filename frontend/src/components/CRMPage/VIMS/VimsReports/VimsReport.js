@@ -471,15 +471,15 @@ const VimsReport=()=>{
           <div className="text-center buttons">
             {
                 type==="Role"?(
-                   duration==="Monthly"?(<Button className="btn btn-primary" onClick={roleMonth}>Get Report</Button>):(
-                   duration==="Quarterly"?(<Button className="btn btn-primary" onClick={roleQuarter}>Get Report</Button>):(
-                   duration==="Yearly"?(<Button className="btn btn-primary" onClick={roleYear}>Get Report</Button>):(<></>)
+                   duration==="Monthly"?(<Button className="btn btn-primary mb-3" onClick={roleMonth}>Get Report</Button>):(
+                   duration==="Quarterly"?(<Button className="btn btn-primary mb-3" onClick={roleQuarter}>Get Report</Button>):(
+                   duration==="Yearly"?(<Button className="btn btn-primary mb-3" onClick={roleYear}>Get Report</Button>):(<></>)
                     )
                    )
                 ):(type==="Professional Sector"?(
-                    duration==="Monthly"?(<Button className="btn btn-primary" onClick={psMonth}>Get Report</Button>):(
-                        duration==="Quarterly"?(<Button className="btn btn-primary" onClick={psQuarter}>Get Report</Button>):(
-                        duration==="Yearly"?(<Button className="btn btn-primary" onClick={psYear}>Get Report</Button>):(<></>)
+                    duration==="Monthly"?(<Button className="btn btn-primary mb-3" onClick={psMonth}>Get Report</Button>):(
+                        duration==="Quarterly"?(<Button className="btn btn-primary mb-3" onClick={psQuarter}>Get Report</Button>):(
+                        duration==="Yearly"?(<Button className="btn btn-primary mb-3" onClick={psYear}>Get Report</Button>):(<></>)
                          )
                         )
                 ):(<></>))

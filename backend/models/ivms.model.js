@@ -57,7 +57,7 @@ const ivmsSchema = new mongoose.Schema({
     role: {
         type: String,
         enum: {
-            values: ['Intern', 'Volunteer'],
+            values: ['Intern', 'Volunteer', 'Advisor'],
             message: '{VALUE} is not supported'
           }
     },

@@ -1,10 +1,9 @@
-const lodash= require('lodash');
 const Lms = require("../models/Lms");
 const Leave = require("../models/leaves");
+const _ = require("lodash");
+const maxLeaves = require("../models/EmpLeaves");
 const Admin = require("../models/Admin_Rudraksha.model");
 const Director = require("../models/Director_Rudraksha.model");
-const maxLeaves = require("../models/EmpLeaves");
-const _ = require("lodash")
 
 const addLeaveApplication_new = async(req,res,next) => {
   try{
@@ -18,7 +17,7 @@ const addLeaveApplication_new = async(req,res,next) => {
     const startDate = new Date(from);
     const endDate = new Date(to);
     let workFrom1;
-    let workTo1;
+    let workTo1; 
 
     if(workFrom || workTo){
       workFrom1 = new Date(workFrom);
@@ -35,6 +34,20 @@ const addLeaveApplication_new = async(req,res,next) => {
     
     console.log("daysOFF: " + daysOFF);
     // console.log(empInLMS.casualLeaveDays + daysOFF);
+
+    // Checking if any unchecked Leave in Leave Collection 
+    // That leave should be first Approved/Rejected then only User/Employee can add new Leaves
+    const leave = await Leave.findOne({status: "Pending", empId: employee._id})
+
+    if(leave){
+      res.status(400).json({
+        success: false,
+        data: `EMP ID with ${employee._id} has a Pending Leave which needs to be Approved/ Rejected by the Admin or Director !!`,
+        message: "Please Try again later after your earlier leave has been approved/ rejected !!"
+      });
+      return -1;
+    }
+
 
     // Checking how much User have left with his Leave Quota
     if(typeOfLeave === "casual leave" && (empInLMS.casualLeaveDays + daysOFF > empInLMS.causalLeave)){
@@ -62,8 +75,14 @@ const addLeaveApplication_new = async(req,res,next) => {
       throw new Error("You have exceeded the limit of your Maternity Leaves !! Remaining Leaves: " + (empInLMS.maternityLeave - empInLMS.maternityLeaveDays));
     }
     else if(typeOfLeave === "paternity leave" && (empInLMS.paternityLeaveDays + daysOFF > empInLMS.paternityLeave)){
-      // FOR WFH
       throw new Error("You have exceeded the limit of your Maternity Leaves !! Remaining Leaves: " + (empInLMS.paternityLeave - empInLMS.paternityLeaveDays));
+    }
+    // FOR WFH
+    else if(typeOfLeave === "wfh leave" && (empInLMS.paternityLeaveDays !== 14)){ // MAX LIMIT FOR PAT_L not reached yet
+      throw new Error("Please finish your 14 days leaves of Paternity Leaves to utilise the WFH Leaves !! Remaining Leaves: " + (empInLMS.paternityLeave - empInLMS.paternityLeaveDays));
+    } 
+    else if(typeOfLeave === "wfh leave" && (empInLMS.wfhPaternityLeaveDays + daysOFF > empInLMS.wfhPaternityLeave)){
+      throw new Error("You are exceeding the limits of your WFH Paternity Leaves !! Remaining Leaves: " + (empInLMS.wfhPaternityLeave - empInLMS.wfhPaternityLeaveDays))
     }
     // gender specific ends
     else if(typeOfLeave === "mourning leave" && (empInLMS.mourningLeaveDays + daysOFF > maxLeaves.MOURN_LEAVE)){
@@ -128,7 +147,7 @@ const addLeaveApplication_new = async(req,res,next) => {
       res.status(201).json({
         success: true,
         data: leaveDetails,
-      })
+      });
 
     }catch(e){
       console.log(e);
@@ -215,6 +234,12 @@ const approveLeaves_new = async(req, res, next) => {
         const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {sickLeaveDays: updatedLeaves}, {new: true, runValidators: true});
         console.log("Done Resolving SL!!");
       }
+      //-----
+      else if(leaveToBeUpdated.typeOfLeave === "compensatory leave"){
+        let updatedLeaves = LMSofEmp.compensatoryLeaveDays + daysOFF;
+        const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {compensatoryLeaveDays: updatedLeaves}, {new: true, runValidators: true});
+        console.log("Done Resolving COMP_L!!");
+      }
       else if(leaveToBeUpdated.typeOfLeave === "earned leave"){
         let updatedLeaves = LMSofEmp.earnedLeaveDays + daysOFF;
         const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {earnedLeaveDays: updatedLeaves}, {new: true, runValidators: true});
@@ -235,6 +260,11 @@ const approveLeaves_new = async(req, res, next) => {
         const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {paternityLeaveDays: updatedLeaves}, {new: true, runValidators: true});
         console.log("Done Resolving PATERNITY Leaves!!");
       }
+      else if(leaveToBeUpdated.typeOfLeave === "wfh leave"){
+        let updatedLeaves = LMSofEmp.wfhPaternityLeaveDays + daysOFF;
+        const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {wfhPaternityLeaveDays: updatedLeaves}, {new: true, runValidators: true});
+        console.log("Done Resolving PATERNITY WFH Leaves !!")
+      }
       else if(leaveToBeUpdated.typeOfLeave === "mourning leave"){
         let updatedLeaves = LMSofEmp.mourningLeaveDays + daysOFF;
         const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {mourningLeaveDays: updatedLeaves}, {new: true, runValidators: true});
@@ -244,8 +274,6 @@ const approveLeaves_new = async(req, res, next) => {
         let updatedLeaves = LMSofEmp.emergencyLeaveDays + daysOFF;
         const updateLMSofEmployee = await Lms.findOneAndUpdate({empId: leaveToBeUpdated.empId}, {emergencyLeaveDays: updatedLeaves}, {new: true, runValidators: true});
         console.log("Done Resolving EMG Leaves!!");
-      } else if(leaveToBeUpdated.typeOfLeave === "compensatory leave"){
-        console.log("Done Resolving Compensatory Leaves!!");
       }
       res.status(200).json({
         success: true,
@@ -272,11 +300,34 @@ const approveLeaves_new = async(req, res, next) => {
   }
 }
 
+
+const approveLeaves = async (req, res, next) => {
+  try { 
+    const { leaveId, status } = req.body;
+    //updating employee leave to rejected/approved
+    if (!leaveId || !status)
+      throw new Error("leave id and status are mandatory fields!");
+    const updateEmpLeave = await Leave.findOneAndUpdate({_id: leaveId}, {status: status}, {new: true, runValidators: true});
+    res.json({
+      success: true,
+      data: updateEmpLeave,
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({
+      success: false,
+      error: error.message,
+      message: "Some Error Occured, Please try again later!",
+    });
+  }
+};
+
+
 const addLeaveApplication = async (req, res, next) => {
-  try {
+  try { 
     const emp = req.emp;
     console.log(emp._id.toString());
-    console.log(emp.designation);
+    console.log(emp.designation); 
     const { typeOfLeave, from, to, remarks } = req.body;
     if (!typeOfLeave || !from || !to) {
       throw new Error("Please provide all the required details!");
@@ -448,12 +499,13 @@ const addLeaveApplication = async (req, res, next) => {
     }
 
     const leave = new Leave({
+      // -------------------------------------------------------------------
       typeOfLeave,
       empId: emp,
+      from,
+      to,
       lmsId: lmsOfEmp._id,
       remarks,
-      from,
-      to
     });
     await leave.save();
 
@@ -467,29 +519,6 @@ const addLeaveApplication = async (req, res, next) => {
       success: false,
       error: error.message,
       message: "Something went wrong, please try again later!",
-    });
-  }
-};
-
-const approveLeaves = async (req, res, next) => {
-  try {
-    const { leaveId, status } = req.body;
-    //updating employee leave to rejected/approved
-    if (!leaveId || !status)
-      throw new Error("leave id and status are mandatory fields!");
-      const updateEmpLeave = await Leave.findOneAndUpdate({_id: leaveId}, 
-        {status: status}, 
-        {new: true, runValidators: true});
-    res.json({
-      success: true,
-      data: updateEmpLeave,
-    });
-  } catch (error) {
-    console.log(error);
-    res.json({
-      success: false,
-      error: error.message,
-      message: "Some Error Occured, Please try again later!",
     });
   }
 };
@@ -511,7 +540,6 @@ const getAllLeaves = async (req, res, next) => {
   }
 };
 
-//Employee Leaves
 const getEmployeeLeaves = async(req, res, next) => {
   try{
     
@@ -528,6 +556,7 @@ const getEmployeeLeaves = async(req, res, next) => {
         MATERNITY_LEAVE: (empLeavesRem.maternityLeave - empLeavesRem.maternityLeaveDays),
         PATERNITY_LEAVE: (empLeavesRem.paternityLeave - empLeavesRem.paternityLeaveDays),
         // PATL_WFH: 60,
+        PATL_WFH_LEAVE: (empLeavesRem.wfhPaternityLeave - empLeavesRem.wfhPaternityLeaveDays),
         MOURN_LEAVE: (maxLeaves.MOURN_LEAVE - empLeavesRem.mourningLeaveDays),
         EMG_LEAVE: (maxLeaves.EMG_LEAVE - empLeavesRem.emergencyLeaveDays)
       }
@@ -541,12 +570,13 @@ const getEmployeeLeaves = async(req, res, next) => {
         T_MATERNITY_LEAVE: empLeavesRem.maternityLeave,
         T_PATERNITY_LEAVE: empLeavesRem.paternityLeave,
         // T_PATL_WFH: 60,
+        T_PATL_WFH_LEAVE: empLeavesRem.wfhPaternityLeave,
         T_MOURN_LEAVE: maxLeaves.MOURN_LEAVE,
         T_EMG_LEAVE: maxLeaves.EMG_LEAVE
       }
 
-      const empName = _.startCase(`${req.emp.firstname} ${req.emp.lastname}`);
-                             
+
+      const empName = _.startCase(`${req.emp.firstname} ${req.emp.lastname}`);             
         res.json({
           success: true,
           data: {
@@ -568,7 +598,7 @@ const getEmployeeLeaves = async(req, res, next) => {
       })
     }
 
-  }catch(e  ){
+  }catch(e){
     console.log(e);
     res.json({
       success: false,
@@ -576,7 +606,6 @@ const getEmployeeLeaves = async(req, res, next) => {
     })
   }
 }
-
 
 module.exports = {
   addLeaveApplication,

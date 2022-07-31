@@ -51,7 +51,7 @@ const VIMS=()=>{
   })
   }
   const handleSubmitVIMSForm=async(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     console.log(data);
     await axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/ivms/add-to-IVMS`,
       data,
@@ -165,7 +165,7 @@ const VIMS=()=>{
               </Row>
               <Row className="mb-2">
                 <Form.Group as={Col} md="4" controlId="validationFormik03">
-                  <Form.Label>Father name</Form.Label>
+                  <Form.Label>Father's name</Form.Label>
                   <Form.Control
                     type="text"
                     name="fathername"
@@ -175,7 +175,7 @@ const VIMS=()=>{
                   />
                 </Form.Group>
                 <Form.Group as={Col} md="4" controlId="validationFormik04">
-                  <Form.Label>Mother name</Form.Label>
+                  <Form.Label>Mother's name</Form.Label>
                   <Form.Control
                     type="text"
                     name="mothername"
@@ -222,6 +222,8 @@ const VIMS=()=>{
                     <option value="">Select</option>
                     <option>Intern</option>
                     <option>Volunteer</option>
+                    <option>Advisor</option>
+
                   </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} md="4" controlId="validationFormik02">
@@ -267,9 +269,10 @@ const VIMS=()=>{
               </Row>
               <Row className="mb-2">
               <Form.Group as={Col} md="4" controlId="validationFormik03">
-                  <Form.Label>Stipend/Month</Form.Label>
+                  <Form.Label>Stipend (Per Month)</Form.Label>
                   <Form.Control
                     type="text"
+                    placeholder="Rs. (INR)"
                     name="stipend"
                     value={data.stipend}
                     onChange={updateData}
@@ -354,7 +357,7 @@ const VIMS=()=>{
                     required
                   >
                     <option value="">Select</option>
-                    <option>UG</option>
+                    <option>Grad.</option>
                     <option>PG</option>
                   </Form.Select>
                 </Form.Group>
@@ -369,7 +372,7 @@ const VIMS=()=>{
                   >
                    <option value="">choose the highest qualification</option>
                     {
-                      data.educationalStatus==="UG"?(<>
+                      data.educationalStatus==="Grad."?(<>
                    <option>B.Arch</option>
                     <option>B.A</option>
                     <option>B.Tech</option>
@@ -417,11 +420,22 @@ const VIMS=()=>{
                       <option>Linux Administrator</option>
                       <option>App Developer</option>
                       <option>UI/UX Developer</option>
+                      <option>Content Writer</option>
+                      <option>Digital Marketing Expert</option>
+                      <option>XML Expert</option>
                       <option>Other</option>
+                      </>):(data.role==="Advisor"?(<>
+                        <option>UNSDG Expert</option>
+                        <option>MSW Expert</option>
+                        <option>MPhil Expert</option>
+                        <option>Experienced SW</option>
+                        <option>PhD Expert</option>
+                        <option>Brand Master Expert</option>
+
                       </>):(<>
                         <option>Social Worker</option>
 
-                      </>)
+                      </>))
                     }
                   </Form.Select>
                 </Form.Group>

@@ -21,10 +21,10 @@ router.post("/approveLeaves", costSheetApprovalAccess, approveLeaves);
 
 router.get("/getEmployeeLeaves", authentication, getEmployeeLeaves);
 
-// ADMIN - DIRECTOR CAN APPLY FOR LEAVES NOW
+// Now ADMIN can apply for Leave
 router.post("/addLeaveApplication_new", authentication, addLeaveApplication_new);
 
-// ADMIN - DIRECTOR ROUTES ONLY
+// ONLY ADMIN ACCESS
 router.get("/getAllLeaves", onlyAdmin, getAllLeaves);
 router.post("/approveLeaves_new", onlyAdmin, approveLeaves_new);
 

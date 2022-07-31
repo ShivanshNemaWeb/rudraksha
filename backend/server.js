@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const ejs = require("ejs");
 // const recordRoutes= require('../backend/routes/api');
 require("dotenv").config();
 const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
+app.set("view engine", "ejs");
 // app.use(require("./routes/api"));
 
 // app.use('/RMSData', recRoutes);
@@ -35,11 +37,12 @@ app.use("/api/attendance", attendanceRoutes);
 app.use("/api/lms", leaveRoutes);
 //http://localhost:5000/api/employees/getEmployees
 app.use("/api/ivms", require("./routes/ivms.routes"));
-
+app.use("/api/nms", require("./routes/nms-empTrack.routes"));
 
 // reports apis
-app.use("/api/reports", require("./reports/employeeDetails"))
+app.use("/api/reports", require("./reports/employeeDetails"));
 app.use("/api/reports", require("./reports/ivms.reports"));
+app.use("/api/reports", require("./reports/nms.reports"));
 
 const ConnectDB = require("./database/connection");
 //connection to db

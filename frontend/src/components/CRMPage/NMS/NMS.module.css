@@ -1,0 +1,77 @@
+.NMS__main{
+    padding: 20px;
+}
+.NMS__info{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+
+}
+.NMS__main {
+    margin-top: 2rem;
+}
+
+.NMS__shadow {
+    box-shadow: 0px 1px 10px;
+    width: 90vw;
+    margin: auto;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.NMS__heading {
+    color: #5384a5;
+}
+
+.NMS__head {
+    display: flex;
+    align-items: center;
+    width: 90vw;
+    margin: auto;
+    padding: 0px 5px;
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    background: linear-gradient(90deg, #5384a5 10%, #45a3b8 100%);
+    ;
+}
+
+.NMS__logo {
+    padding-right: 5px;
+}
+
+.NMS__form__heading {
+    font-weight: 600;
+    color: #fff;
+    font-size: x-large
+}
+
+.NMS__form {
+    margin: 1rem;
+}
+
+.NMS__form2 {
+    width: 70vw;
+    align-items: flex-end;
+    margin: auto;
+    padding-bottom: 1rem;
+}
+
+.btn {
+    align-items: center !important;
+}
+.NMS__info{
+    display: flex;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
+}
+.NMS__model{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+}
+.NMS__modelForm{
+    display: flex;
+    flex-direction: row;
+}
