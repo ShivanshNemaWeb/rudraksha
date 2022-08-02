@@ -74,7 +74,7 @@ const NMS=()=>{
    const [donation,setDonation]=useState("Yes");
    const [isDonate,setIsDonate]=useState(true);
    const [donationAmt,setDonationAmt]=useState(0);
-   const [donationDate,setDonationDate]=useState("null");
+   const [donationDate,setDonationDate]=useState("2022-01-01");
 
    const upDonationAmt=(e)=>{
     setDonationAmt(e.target.value);
@@ -83,6 +83,7 @@ const NMS=()=>{
     setDonationDate(e.target.value);
    }
    useEffect(async()=>{
+    console.log(data.empId);
    await network.map((network)=>{
       if(network.empId==data.empId){
         console.log(network.target);
@@ -91,12 +92,12 @@ const NMS=()=>{
         setCount(network.count);
         setnetworkStr(network.count+"/" +network.target);
       }
-      else{
-        console.log(" not found ");
-        setTarget("NOT FOUND");
-        setCount("NOT FOUND");
-        setnetworkStr("NOT FOUND")
-      }
+      // else{
+      //   console.log(" not found ");
+      //   setTarget("NOT FOUND");
+      //   setCount("NOT FOUND");
+      //   setnetworkStr("NOT FOUND")
+      // }
 
       ///////////////////////////
       emp.map((emp)=>{

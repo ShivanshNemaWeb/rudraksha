@@ -11,9 +11,6 @@ const volunteerNMSchema = new mongoose.Schema({
         type: String,
         required: [true, "Please Enter your full name !!"]
     },
-    // profilePic: {
-    //     type: Buffer,
-    // },
     volDob: {
         type: Date,
         required: [true, "DOB is required !!"],
@@ -24,15 +21,15 @@ const volunteerNMSchema = new mongoose.Schema({
         required: [true, 'Email address is required !'],
         match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please fill a valid email address']
     },
-    volFather: {
-        type: String,
-    },
-    volBlood:{
-        type: String,
+    fathername: {
+        type: String
     },
     volNumber: {
         type: String,
         required: [true, "Please provide your Phone Number !"]
+    },
+    volBlood:{
+        type: String,
     },
     volAddress: {
         type: String,
@@ -44,7 +41,7 @@ const volunteerNMSchema = new mongoose.Schema({
     },
     volunteership: {
         type: Date,
-        required: [true, "Please provide the Volunteership Date !!"]
+        required: [true, "Please provide the Ending Date !!"]
     },
     volProfession: {
         type: String
@@ -74,17 +71,21 @@ const volunteerNMSchema = new mongoose.Schema({
         type: Date,
         default: null
     },
+    orderId: {
+        type: String,
+        default: null
+    },
     donationAmt: {
         type: Number,
         default: null
     },
-    donationStatus: [{for: Date, amount: Number}],
+    donationStatus: [{for: Date, amount: Number, orderId: String}],
     totalAmountYearly: {
         type: Number,
         default: 0
     }
 
-});
+}, {timestamps: true});
 
 const volunteerNMSModel = mongoose.model("NMS Emp - Volunteer master", volunteerNMSchema);
 module.exports = volunteerNMSModel;

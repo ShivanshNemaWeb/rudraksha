@@ -64,6 +64,8 @@ import VimsReport from "./components/CRMPage/VIMS/VimsReports/VimsReport";
 import NSM from "./components/CRMPage/NMS/NMS";
 import NMSReport from "./components/CRMPage/NMS/NMSReport/NMSReport";
 import Volunteership from "./components/CRMPage/NMS/Volunteership/Volunteership";
+import DMS from "./components/CRMPage/DMS/DMS";
+import SMS from "./components/CRMPage/SMS/SMS";
 
 function App() {
   return (
@@ -129,6 +131,8 @@ function App() {
         <Route exact path="/NMS" component={NSM} />
         <Route exact path="/NMS/NMSReport" component={NMSReport} />
         <Route exact path="/NMS/Volunteership" component={Volunteership} />
+        <Route exact path="/DMS" component={DMS} />
+        <Route exact path="/SMS" component={SMS} />
 
       </Switch>
     </>

@@ -1,6 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const nodeCron = require("node-cron");
 const schedule = require("node-schedule");
 const _ = require("lodash");
 
@@ -12,46 +11,6 @@ const empTrackModel = require("../models/nms-empTrack.model");
 const volunteerNMSModel = require("../models/nms-volunteers.model");
 
 // Cron Scheduler - Checks Everyday at 12:00 AM 
-// const job = nodeCron.schedule("0 0 * * *", async () => {
-//     // Do whatever you want in here. Send email, Make  database backup or download data.
-//     const allTracks = await empTrackModel.find();
-//     const todayMonth = new Date();
-//     if(allTracks.length > 0){
-//         for(let i = 0; i < allTracks.length; i++){
-            
-//             // if we move to next month
-//             // 6(July) < 7(August)
-//             if(allTracks[i].currentDate.getMonth() < todayMonth.getMonth()){
-                
-//                 // The Current Date in DB gets updated - Month by +1
-//                 // const newCurrentDate = todayMonth.setMonth(todayMonth.getMonth());
-//                 const newCurrentDate = todayMonth.setMonth(allTracks[i].currentDate.getMonth() + 1);
-                
-//                 // Employee's target is increased by 21
-//                 const newDeployments = allTracks[i].targetDeployment + 21;
-                
-//                 // Employee's Track is updated 
-//                 const allTracksOne = await empTrackModel.findOneAndUpdate({_id: allTracks[i]._id}, {currentDate: newCurrentDate, targetDeployment: newDeployments}, {new: true, runValidators: true});
-//             }
-            
-//             // If new year starts, the Employee starts with new Target of Deployments
-//             // As 11(November) > 0(January)
-//             if(allTracks[i].currentDate.getMonth() > todayMonth.getMonth()){
-
-//                 // Kepp track of last year's deployment status
-//                 let totalDeployments = allTracks[i].deployedYearly;
-//                 totalDeployments += allTracks[i].count;
-
-//                 // Updating the target once again with 21, count with 0, and deployedYearly with above variable
-//                 const allTracksOne = await empTrackModel.findOneAndUpdate({_id: allTracks[i]._id}, {currentDate: todayMonth, targetDeployment: 21, deployedYearly: totalDeployments, count: 0}, {new: true, runValidators: true});
-//             }
-
-//         }
-//     }
-// });
-
-
-// Cron Scheduler - Checks Everyday at 12:00 AM
 schedule.scheduleJob("0 0 * * *", async () => {
     // Do whatever you want in here. Send email, Make  database backup or download data.
     const allTracks = await empTrackModel.find();
@@ -72,7 +31,6 @@ schedule.scheduleJob("0 0 * * *", async () => {
                 // -> const newCurrentDate = todayMonth.setMonth(todayMonth.getMonth());
                 // -> suppose Today is 01/08/2022 and existing date(currentDate) is 31/07/2022, newCurrentDate becomes 
                 // ... currentDate.getMonth() + 1   i.e. 07+01 = 08 and currentDate becomes on updating --> 01/08/2022
-                const newCurrentDate = todayMonth.setMonth(allTracks[i].currentDate.getMonth() + 1);
                 
                 // Employee's target is increased by 21
                 const newDeployments = allTracks[i].targetDeployment + 21;
@@ -81,8 +39,9 @@ schedule.scheduleJob("0 0 * * *", async () => {
                 if(allTracks[i].monthlyStatus.length === 0){
                     const allTracksOne = await empTrackModel.findOneAndUpdate({_id: allTracks[i]._id}, {
                         monthlyStatus: [...allTracks[i].monthlyStatus, {"for": oldDate, "count": latestCount}],
-                        currentDate: newCurrentDate,
+                        currentDate: todayMonth,
                         targetDeployment: newDeployments, 
+                        $inc: {donationTarget: 2100},
                     }, {new: true, runValidators: true});
 
                 } else {
@@ -103,7 +62,7 @@ schedule.scheduleJob("0 0 * * *", async () => {
 
                     const allTracksOne = await empTrackModel.findOneAndUpdate({_id: allTracks[i]._id}, {
                         monthlyStatus: [...allTracks[i].monthlyStatus, {"for": oldDate, "count": (latestCount - prevCount)}], 
-                        currentDate: newCurrentDate,
+                        currentDate: todayMonth,
                         targetDeployment: newDeployments, 
                     }, {new: true, runValidators: true});
                 }
@@ -124,7 +83,8 @@ schedule.scheduleJob("0 0 * * *", async () => {
                     targetDeployment: 21, 
                     deployedYearly: totalDeployments, 
                     count: 0,
-                    monthlyStatus: []
+                    monthlyStatus: [],
+                    donationTarget: 2100,
                 }, {new: true, runValidators: true});
             }
         }
@@ -133,57 +93,27 @@ schedule.scheduleJob("0 0 * * *", async () => {
     if(allVolunteers.length > 0){
         const todayMonth = new Date();
         for(let i = 0; i < allVolunteers.length; i++){
-            if(allVolunteers[i].volStartDate.getMonth() < todayMonth.getMonth()){
-                let oldDate = allVolunteers[i].volStartDate;
-                let latestAmount = allVolunteers[i].donationAmt;
-                let prevAmount = 0;
-
-                if(allVolunteers[i].donationStatus.length === 0){
-                    const allVolsOne = await volunteerNMSModel.findOneAndUpdate({_id: allVolunteers[i]._id}, {
-                        donationStatus: [...allVolunteers[i].donationStatus, {"for": oldDate, "amount": latestAmount}]
-                    }, {new: true, runValidators: true});
-
-                } else {
-
-                    let maxTime = allVolunteers[i].donationStatus[0].for.getTime();
-
-                    for(let j = 1; j < allVolunteers[i].donationStatus.length; j++){
-                        if(allVolunteers[i].donationStatus[j].for.getTime() > maxTime){
-                            maxTime = allVolunteers[i].donationStatus[j].for.getTime();
-                        }
-                    }
-
-                    for(let j = 0; j < allVolunteers[i].donationStatus.length; j++){
-                        if(allVolunteers[i].donationStatus.for.getTime() <= maxTime){
-                            prevAmount += allVolunteers[i].donationStatus[j].amount;
-                        }
-                    }
-
-                    const allVolsOne = await volunteerNMSModel.findOneAndUpdate({_id: allVolunteers[i]._id}, {
-                        donationStatus: [...allVolunteers[i].donationStatus, {"for": oldDate, "amount": (latestAmount - prevAmount)}]
-                    }, {new: true, runValidators: true});
-
-                }
-
+            if(allVolunteers[i].updatedAt.getMonth() < todayMonth.getMonth()){
+                
+                const allVolsOne = await volunteerNMSModel.findOneAndUpdate({_id: allVolunteers[i]._id}, 
+                    {isDonor: false, $inc: {totalAmountYearly: allVolunteers[i].donationAmt}}, {new: true, runValidators: true});
             }
 
             if(allVolunteers[i].volStartDate.getMonth() > todayMonth.getMonth()){
-                let totalAmt = allVolunteers[i].totalAmountYearly;
-                totalAmt += donationAmt;
 
                 const allVolsOne = await volunteerNMSModel.findOneAndUpdate({_id: allVolunteers[i]._id}, {
-                    totalAmountYearly: totalAmt,
-                    donationStatus: []
+                    donationStatus: [],
+                    isDonor: false, donationAmt: 0, donationDate: null, orderId: null
                 }, {new: true, runValidators: true});
 
             }
         }
     }
 
-});
+}); 
 
 // job.start();
-
+ 
 router.get("/countTracker", async(req, res) => {
     try{
         const allTracks = await empTrackModel.find();
@@ -219,14 +149,13 @@ router.get("/countTracker", async(req, res) => {
 });
 
 router.post("/add-NMS-Volunteers", authentication, async(req, res) => {
-    let {volEmail, volName, volBlood, volDob, empId, volNumber, volAddress, volStartDate,volFather, volunteership, volProfession, volProjectHead, volProjectName, remarks, isDonor, donationAmt, donationDate} = req.body;
-    // console.log(req.body);
-    // console.log(typeof(isDonor));
+    let {volEmail, volName, volBlood, volDob, empId, volNumber, volAddress, volStartDate, volunteership, volProfession, volProjectHead, volProjectName, remarks, isDonor, donationAmt, donationDate, orderId} = req.body;
+
     const fullName = _.startCase(volName);
     let amt = isDonor ? Number(donationAmt) : null;
     let donDate = isDonor ? donationDate : null;
-    let donationStatus = isDonor ? [{"for": donDate, "amount": amt}] : [];
-    volFather = _.startCase(volFather);
+    orderId = isDonor ? orderId : null;
+    let donationStatus = isDonor ? [{"for": donDate, "amount": amt, "orderId": orderId}] : [];
     try {
 
         // if(!volEmail || !volName || !volDob || !empId || !volNumber || !volAddress || !volStartDate || !volEndDate || !volProfession || !volProjectHead || !volProjectName || !remarks){
@@ -244,7 +173,6 @@ router.post("/add-NMS-Volunteers", authentication, async(req, res) => {
             volEmail,
             volDob,
             empId,
-            volFather,
             volNumber,
             volAddress,
             volBlood,
@@ -257,15 +185,16 @@ router.post("/add-NMS-Volunteers", authentication, async(req, res) => {
             isDonor,
             donationAmt: amt,
             donationDate: donDate,
-            donationStatus
+            donationStatus,
+            orderId
         });
 
         const saveVolunteer = await newVolunteer.save();
 
         // Increasing the count of COUNT in Tracker
 
-        const updateTracker = await empTrackModel.findOneAndUpdate({empId: req.body.empId}, {$inc: {count: 1}}, {new: true, runValidators: true});
-        
+        const updateTracker = await empTrackModel.findOneAndUpdate({empId: req.body.empId},
+             {$inc: {count: 1, donationTillNow: amt}}, {new: true, runValidators: true});
         res.status(201).json({
             success: true,
             data: {
@@ -380,6 +309,111 @@ router.post("/activeVolunteer", onlyAdmin, async(req, res) => {
             });
         }
 
+    }catch(e){
+        console.log(e);
+        res.status(500).json({
+            success: false,
+            data: "Something Went Wrong !!",
+            message: "Something Went Wrong !!"
+        });
+    }
+});
+
+router.get("/allVolunteers", authentication, async(req, res) => {
+    try{
+        const allVolunteers = await volunteerNMSModel.find();
+        if(allVolunteers.length > 0){
+            res.status(200).json({
+                success: true,
+                data: allVolunteers,
+                message: "All Volunteers Data fetched !!"
+            });
+            return -1;
+        } else {
+            res.status(200).json({
+                success: true,
+                data: [],
+                message: "No Records found for Volunteers in NMS !!"
+            });
+        }
+    }catch(e){
+        console.log(e);
+        res.status(500).json({
+            success: false,
+            data: "Something Went Wrong !!",
+            message: "Something Went Wrong !!"
+        });
+    }
+});
+
+router.post("/donate", authentication, async(req, res) => {
+    const {volId, amt, donDate, orderId} = req.body;
+    try{
+        const obj = {"for": donDate, "amount": amt, "orderId": orderId};
+        const volOne = await volunteerNMSModel.findOne({_id: volId});
+
+        if(volOne.isDonor){
+            res.status(400).json({
+                success: false,
+                data: `${volOne.volName} already Donated DATED: ${volOne.donationDate} !! Thanks for the Donation 🙏, Please Donate the amount coming next month !!`,
+                message: "Please try again for next month !!"
+            });
+            return -1;
+        }
+
+        // console.log(money);
+
+        const updateVolunteer = await volunteerNMSModel.findOneAndUpdate({_id: volOne._id}, {
+            donationStatus: [...volOne.donationStatus, obj],
+            isDonor: true,
+            donationDate: donDate,
+            $inc: {donationAmt: amt},
+            orderId
+        }, {new: true, runValidators: true});
+
+        const updateTracker = await empTrackModel.findOneAndUpdate({empId: volOne.empId}, {$inc: {donationTillNow: updateVolunteer.donationAmt}}, {new: true, runValidators: true});
+
+        res.status(200).json({
+            success: true,
+            data: {
+                updateVolunteer,
+                updateTracker
+            },
+            message: "Volunteer Updated with ID: " + volId
+        });
+
+    }catch(e){
+        console.log(e);
+        res.status(500).json({
+            success: false,
+            data: "Something Went Wrong !!",
+            message: "Something Went Wrong !!"
+        });
+    }
+});
+
+router.get("/donationTracker", async(req, res) => {
+    let dat = [];
+    try{
+        const allTracks = await empTrackModel.find();
+        if(allTracks.length > 0){
+            for(let i = 0; i < allTracks.length; i++){
+                dat.push({empId: allTracks[i].empId, target: allTracks[i].donationTarget, count: allTracks[i].donationTillNow});
+            }
+            res.status(200).json({
+                success: true,
+                data: dat,
+                message: "Fetched All the Track Records of NMS of Employees."
+            });
+            return -1;
+        } else {
+            res.status(400).json({
+                success: true,
+                data: "No Tracker Records Found !!",
+                message: "Please Try Again !!"
+            });
+            return -1;
+        }
     }catch(e){
         console.log(e);
         res.status(500).json({

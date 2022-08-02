@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 
-const {onlyAdmin, authentication} = require("../middlewares/auth");
+const {onlyAdmin} = require("../middlewares/auth");
 
 const trackModel = require("../models/nms-empTrack.model");
 const volModel = require("../models/nms-volunteers.model");
 
-router.post("/reports-monthly-nms", onlyAdmin, async(req, res) => {
+router.post("/reports-monthly-nms", async(req, res) => {
     const {empId, month, year} = req.body;
     try{
         const oneEmp = await trackModel.findOne({empId: empId});
@@ -57,7 +57,7 @@ router.post("/reports-monthly-nms", onlyAdmin, async(req, res) => {
     }
 });
 
-router.post("/reports-quarterly-nms", onlyAdmin, async(req, res) => {
+router.post("/reports-quarterly-nms", async(req, res) => {
     const {quarter, empId, year} = req.body;
 
     const quarter0 = {
@@ -110,7 +110,7 @@ router.post("/reports-quarterly-nms", onlyAdmin, async(req, res) => {
             for(let i = 0; i < oneEmp.monthlyStatus.length; i++){
                 if(Number(quarter) === 0){
     
-                    if((oneEmp.monthlyStatus[i].for.getMonth() === 0 || oneEmp.monthlyStatus[i].for.getMonth() === 1 || oneEmp.monthlyStatus[i].for.getMonth() === 2 || oneEmp.monthlyStatus[i].for.getMonth() === 3) && (oneEmp.monthlyStatus[i].getFullYear() === Number(year))){
+                    if((oneEmp.monthlyStatus[i].for.getMonth() === 0 || oneEmp.monthlyStatus[i].for.getMonth() === 1 || oneEmp.monthlyStatus[i].for.getMonth() === 2 || oneEmp.monthlyStatus[i].for.getMonth() === 3) && (oneEmp.monthlyStatus[i].for.getFullYear() === Number(year))){
     
                         let mnth = oneEmp.monthlyStatus[i].for.toLocaleString('default', { month: 'long' });
                         if(mnth in quarter0){
@@ -122,8 +122,9 @@ router.post("/reports-quarterly-nms", onlyAdmin, async(req, res) => {
                 }
     
                 if(Number(quarter) === 1){
-    
-                    if((oneEmp.monthlyStatus[i].for.getMonth() === 4 || oneEmp.monthlyStatus[i].for.getMonth() === 5 || oneEmp.monthlyStatus[i].for.getMonth() === 6 || oneEmp.monthlyStatus[i].for.getMonth() === 7) && (oneEmp.monthlyStatus[i].getFullYear() === Number(year))){
+
+                    // console.log("i: "+ i +"\nyes\n"+oneEmp.monthlyStatus[i].for.getFullYear());
+                    if((oneEmp.monthlyStatus[i].for.getMonth() === 4 || oneEmp.monthlyStatus[i].for.getMonth() === 5 || oneEmp.monthlyStatus[i].for.getMonth() === 6 || oneEmp.monthlyStatus[i].for.getMonth() === 7) && (oneEmp.monthlyStatus[i].for.getFullYear() === Number(year))){
     
                         let mnth = oneEmp.monthlyStatus[i].for.toLocaleString('default', { month: 'long' });
                         if(mnth in quarter1){
@@ -136,7 +137,7 @@ router.post("/reports-quarterly-nms", onlyAdmin, async(req, res) => {
     
                 if(Number(quarter) === 2){
     
-                    if((oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 10 || oneEmp.monthlyStatus[i].for.getMonth() === 11) && (oneEmp.monthlyStatus[i].getFullYear() === Number(year))){
+                    if((oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 10 || oneEmp.monthlyStatus[i].for.getMonth() === 11) && (oneEmp.monthlyStatus[i].for.getFullYear() === Number(year))){
     
                         let mnth = oneEmp.monthlyStatus[i].for.toLocaleString('default', { month: 'long' });
                         if(mnth in quarter2){
@@ -229,7 +230,7 @@ router.post("/reports-quarterly-nms", onlyAdmin, async(req, res) => {
     }
 });
 
-router.post("/reports-halfYearly-nms", onlyAdmin, async(req, res) => {
+router.post("/reports-halfYearly-nms", async(req, res) => {
     const {half, empId, year} = req.body;
 
     const half0 = {
@@ -275,7 +276,7 @@ router.post("/reports-halfYearly-nms", onlyAdmin, async(req, res) => {
             for(let i = 0; i < oneEmp.monthlyStatus.length; i++){
                 if(Number(half) === 0){
     
-                    if((oneEmp.monthlyStatus[i].for.getMonth() === 0 || oneEmp.monthlyStatus[i].for.getMonth() === 1 || oneEmp.monthlyStatus[i].for.getMonth() === 2 || oneEmp.monthlyStatus[i].for.getMonth() === 3 || oneEmp.monthlyStatus[i].for.getMonth() === 4 || oneEmp.monthlyStatus[i].for.getMonth() === 5) && (oneEmp.monthlyStatus[i].getFullYear() === Number(year))){
+                    if((oneEmp.monthlyStatus[i].for.getMonth() === 0 || oneEmp.monthlyStatus[i].for.getMonth() === 1 || oneEmp.monthlyStatus[i].for.getMonth() === 2 || oneEmp.monthlyStatus[i].for.getMonth() === 3 || oneEmp.monthlyStatus[i].for.getMonth() === 4 || oneEmp.monthlyStatus[i].for.getMonth() === 5) && (oneEmp.monthlyStatus[i].for.getFullYear() === Number(year))){
     
                         let mnth = oneEmp.monthlyStatus[i].for.toLocaleString('default', { month: 'long' });
                         if(mnth in half0){
@@ -288,7 +289,7 @@ router.post("/reports-halfYearly-nms", onlyAdmin, async(req, res) => {
     
                 if(Number(half) === 1){
     
-                    if((oneEmp.monthlyStatus[i].for.getMonth() === 6 || oneEmp.monthlyStatus[i].for.getMonth() === 7 || oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 9 || oneEmp.monthlyStatus[i].for.getMonth() === 10 || oneEmp.monthlyStatus[i].for.getMonth() === 11) && (oneEmp.monthlyStatus[i].getFullYear() === Number(year))){
+                    if((oneEmp.monthlyStatus[i].for.getMonth() === 6 || oneEmp.monthlyStatus[i].for.getMonth() === 7 || oneEmp.monthlyStatus[i].for.getMonth() === 8 || oneEmp.monthlyStatus[i].for.getMonth() === 9 || oneEmp.monthlyStatus[i].for.getMonth() === 10 || oneEmp.monthlyStatus[i].for.getMonth() === 11) && (oneEmp.monthlyStatus[i].for.getFullYear() === Number(year))){
     
                         let mnth = oneEmp.monthlyStatus[i].for.toLocaleString('default', { month: 'long' });
                         if(mnth in half1){
@@ -359,7 +360,7 @@ router.post("/reports-halfYearly-nms", onlyAdmin, async(req, res) => {
     }
 });
 
-router.post("/reports-yearly-nms", onlyAdmin, async(req, res) => {
+router.post("/reports-yearly-nms", async(req, res) => {
     const {empId, year} = req.body;
     try{
         const oneEmp = await trackModel.findOne({empId: empId});
@@ -433,6 +434,6 @@ router.post("/reports-yearly-nms", onlyAdmin, async(req, res) => {
             message: e
         })
     }
-})
+});
 
 module.exports = router;

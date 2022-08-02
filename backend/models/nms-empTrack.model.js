@@ -26,6 +26,14 @@ const empTrackSchema = new mongoose.Schema({
         type: Number,
         default: 0,
     },
+    donationTarget: {
+        type: Number,
+        default: 2100
+    },
+    donationTillNow: {
+        type: Number,
+        default: 0
+    },
     monthlyStatus: [{for: Date, count: Number}],
     deployedYearly: {
         type: Number,
