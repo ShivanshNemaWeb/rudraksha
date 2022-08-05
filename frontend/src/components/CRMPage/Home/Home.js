@@ -25,7 +25,7 @@ const Home = () => {
             <Nav.Link href="/rms" className={styles.crm__nav}>
               RMS
             </Nav.Link>
-            <Nav.Link href="#features" className={styles.crm__nav}>
+            <Nav.Link href="/PMS" className={styles.crm__nav}>
               PMS
             </Nav.Link>
             <Nav.Link href="/LMS" className={styles.crm__nav}>
@@ -52,6 +52,9 @@ const Home = () => {
             </Nav.Link>
             <Nav.Link href="/SMS" className={styles.crm__nav}>
               SMS
+            </Nav.Link>
+            <Nav.Link href="/Memo" className={styles.crm__nav}>
+              Memo
             </Nav.Link>
             <Nav.Link href="/addEvent" className={styles.crm__nav}>
               Add Event

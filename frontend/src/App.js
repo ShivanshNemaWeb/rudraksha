@@ -65,7 +65,9 @@ import NSM from "./components/CRMPage/NMS/NMS";
 import NMSReport from "./components/CRMPage/NMS/NMSReport/NMSReport";
 import Volunteership from "./components/CRMPage/NMS/Volunteership/Volunteership";
 import DMS from "./components/CRMPage/DMS/DMS";
-import SMS from "./components/CRMPage/SMS/SMS";
+import SMS from "./components/CRMPage/SMS/SMS";   
+import Memo from "./components/CRMPage/Memo/Memo";
+import PMS from "./components/CRMPage/PMS/PMS";
 
 function App() {
   return (
@@ -133,6 +135,8 @@ function App() {
         <Route exact path="/NMS/Volunteership" component={Volunteership} />
         <Route exact path="/DMS" component={DMS} />
         <Route exact path="/SMS" component={SMS} />
+        <Route exact path="/Memo" component={Memo} />
+        <Route exact path="/PMS" component={PMS} />
 
       </Switch>
     </>

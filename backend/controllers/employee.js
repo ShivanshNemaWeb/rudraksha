@@ -4,6 +4,7 @@ const Lms = require("../models/Lms");
 const empTrackModel = require("../models/nms-empTrack.model");
 const digitalSaleModel = require("../models/salesDIGITAL.model");
 const fncgSalesModel = require("../models/salesFNCG.model");
+const memoModel = require("../models/memo.model");
 
 const schedule = require("node-schedule");
 const fs = require("fs");
@@ -53,6 +54,17 @@ const AddEmployee = async (req, res, next) => {
 
     const saveTracker = await newTracker.save();
     console.log(saveTracker);
+
+    /////////////////////////////////////////////////////////
+    // creating a memo instance for each employee
+
+    const newMemo = new memoModel({
+      empId: emp._id,
+      currentDate: doj
+    });
+
+    const saveMemo = await newMemo.save();
+    console.log(saveMemo);
 
     /////////////////////////////////////////////////////////
     // creating a sales instance for each employee

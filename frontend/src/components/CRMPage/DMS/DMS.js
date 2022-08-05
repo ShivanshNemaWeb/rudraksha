@@ -30,9 +30,12 @@ const DMS=()=>{
         orderId:"",
         donationAmt:"",
         date:"",
-        remarks:""
+        remarks:"",
+        empId:"",
     })
     const [volunteers,setVolunteers]=useState([]);
+    const [donation,setDonation]=useState([]);
+    const [donationStr,setdonationStr]=useState("");
     const upVolunteers=(e)=>{
         volunteers.map((volunteer)=>{
             if(`${volunteer.volName.toLowerCase()}`==e.target.value.toLowerCase()){
@@ -45,7 +48,7 @@ const DMS=()=>{
                 projectName:volunteer.volProjectName,
                 projectHead:volunteer.volProjectHead,
                 address:volunteer.volAddress,
-
+                empId:volunteer.empId,
               })
             }
           })
@@ -71,6 +74,16 @@ const DMS=()=>{
             console.log(err);
         })
     },[])
+
+    useEffect(async()=>{
+     
+      await axios.get(`${process.env.REACT_APP_BACKEND_URL}/api/nms/donationTracker`).then((res)=>{
+        setDonation(res.data.data);
+        console.log(res);
+      }).catch((err)=>{
+       console.log(err);
+      })
+     },[]);
     const handleSubmitDMS=(e)=>{
 e.preventDefault();
         axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/nms/donate`,
@@ -92,6 +105,18 @@ e.preventDefault();
             console.log(err);
         })
     }
+
+    useEffect(async()=>{
+      console.log(data.empId);
+     await donation.map((donation)=>{
+        if(donation.empId==data.empId){
+          console.log(donation.target);
+          console.log(donation.count);
+          setdonationStr(donation.count+"/" +donation.target);
+        }
+       
+       })
+     },[data.volName])
     return(<>
     <div className={styles.DMS__main}>
         <div className={styles.DMS__shadow}>
@@ -132,7 +157,17 @@ e.preventDefault();
                     }
                   </Form.Select>
                 </Form.Group>
-                <Form.Group as={Col} md="4" controlId="validationFormik01">
+                <Form.Group as={Col} md="2" controlId="validationFormik01">
+                  <Form.Label>Donation</Form.Label>
+                  <Form.Control
+                    type="text"
+                    name="donationStr"
+                    className="mb-3"
+                    value={donationStr}
+                    disabled
+                  />
+                </Form.Group>
+                <Form.Group as={Col} md="2" controlId="validationFormik01">
                   <Form.Label>Phone No</Form.Label>
                   <Form.Control
                     type="number"
