@@ -3,35 +3,40 @@
 .Projectheading {
 	
 	background: #00afc1;
-	/* min-height: 100vh; */
     margin-top: 6px;
 	margin-bottom: 20px;
 	height: 150px;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
-	/* border: 2px solid brown; */
-	/* background-color: black; */
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
 }
 .Projectheading h1{
 	width: fit-content;
-	/* border:2px solid red; */
 	margin: auto;
 	position: relative;
 	top:30px;
-	color: white;
+	color:white;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: bolder;
 	font-size: 70px;
-
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;	
 
 
 
 	
 }
 
-.Fadeeffect{
+/* changed */
+
+
+/* .Fadeeffect{
 	position: absolute;
 	
 	left: 30%;
@@ -41,7 +46,7 @@
 	animation: myfirst 	10s infinite;
     animation-direction: normal;
 	z-index: 2;
-}
+} */
 
 @keyframes myfirst{
 	
@@ -230,7 +235,7 @@
 		
 	}
 	.Projectheading h1{
-		
+		font-size: 30px;
 		text-align: center;
 	}
 }
@@ -277,7 +282,7 @@
   @media only screen and ( max-width: 480px){
     .Projectheading h1{
         font-size: 2rem;
-		
+		/* font-size: 20px; */
     }
 	.Projectheading{
 		height: 100px;

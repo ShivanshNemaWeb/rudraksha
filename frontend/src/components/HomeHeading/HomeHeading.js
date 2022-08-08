@@ -3,7 +3,7 @@ import'./HomeHead.css'
 
 function HomeHeading() {
   return (
-    <div>
+    <div className='main'>
     <div class="upperlogo">
       <img src={require('../../Images/Upperlogo1.jpeg')
                 } class="img-fluid ulogoimage" alt=""/>

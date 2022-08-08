@@ -2,9 +2,13 @@
     text-align: center;
     /* border: 2px solid black; */
     object-fit: cover;
+
 }
 
 .ulogoimage{
     /* border:2px solid aqua; */
+    width: 100%;
+}
+.main{
     width: 100%;
 }

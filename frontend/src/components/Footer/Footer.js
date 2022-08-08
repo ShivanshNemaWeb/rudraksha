@@ -32,14 +32,14 @@ export default function FooterPagePro() {
         <section className='FooterSection'>
           <div className='container text-center text-md-start mt-5'>
             <div className='row mt-3'>
-              <div className='col-sm-4 col-md-3 col-lg-4 col-xl-5 mx-auto mb-4  div1f'>
+              <div className='col-sm-4 col-md-3 col-lg-4 col-xl-5 mx-auto mb-4  div1f text-center'>
                 <img src={require('../../Images/LogoLoad.jpeg')
                 } ></img>
-                <h3 className='text-uppercase fw-bold mb-4'>
+                <h4 className='text-uppercase fw-bold mb-4'>
                   <span className='fspan1'>RUDRAKSHA</span>
                   <span className='fspan2'>WELFARE</span>
                   <span className='fspan3'>FOUNDATION</span>
-                </h3>
+                </h4>
                 <ul className=''>
                   <li>Home</li>
                   <li>Disclaimer</li>

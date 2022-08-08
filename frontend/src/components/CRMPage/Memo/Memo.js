@@ -68,7 +68,7 @@ setData({
                 ...data,
                 empName:e.target.value,
                 empId:emp._id,
-                joined:emp.createdAt.split("T")[0],
+                joined:emp.updatedAt.split("T")[0],
                 phone:emp.phone,
                 designation:emp.designation,
                 email:emp.email,
@@ -245,6 +245,16 @@ setData({
                 </Form.Group>
                 </Row>
                 <Row>
+                <Form.Group as={Col} md="4" controlId="validationFormik01">
+                  <Form.Label>Joined On</Form.Label>
+                  <Form.Control
+                    type="joined"
+                    name="branch"
+                    className="mb-3"
+                    value={data.joined}
+                    disabled
+                  />
+                </Form.Group>
                 <Form.Group as={Col} md="4" controlId="validationFormik01">
                   <Form.Label>Memo Type</Form.Label>
                   <Form.Select

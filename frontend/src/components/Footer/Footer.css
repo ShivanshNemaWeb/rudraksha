@@ -4,8 +4,8 @@
     position: relative;
     z-index: 1;
     height: 3em;
-    
-    color: white
+    color: white;
+   
 }
 
 .div1f span{
@@ -96,7 +96,7 @@
     color: white;
     /* border: 2px solid white; */
     position: relative;
-    right: 80px;
+    /* right: 80px; */
     bottom: 20px;
 }
 .div2f{

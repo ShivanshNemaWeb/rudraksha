@@ -65,6 +65,9 @@ const Home = () => {
             <Nav.Link className={styles.crm__nav} onClick={logout}>
               Log Out
             </Nav.Link>
+            <Nav.Link  href="/Register" className={styles.crm__nav} >
+               Register
+            </Nav.Link>
             
           </Nav>
         </Container>

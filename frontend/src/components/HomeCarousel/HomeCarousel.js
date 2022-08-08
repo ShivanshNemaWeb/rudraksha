@@ -2,7 +2,7 @@ import React from 'react'
 import './HomeCar.css'
 function HomeCarousel() {
   return (
-    <div>
+    <div className='main'>
       <div id="carouselExampleFade" className="carousel slide carousel-fade" data-bs-ride="carousel">
       <div className="carousel-inner " id="incarousel">
         <div className="carousel-item active rounded">

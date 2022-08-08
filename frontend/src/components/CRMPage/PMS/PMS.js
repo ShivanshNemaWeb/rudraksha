@@ -131,15 +131,18 @@ console.log(data.empId);
      },[month]);
 
      useEffect(()=>{
-        if(quarter==="Jan-Apr"){
+        if(quarter==="Jan-Mar"){
             setQuarterIndex(0);
         }
-        else if(quarter==="May-Aug"){
+        else if(quarter==="Apr-Jun"){
             setQuarterIndex(1);
         }
-        else if(quarter==="Sep-Dec"){
+        else if(quarter==="Jul-Sep"){
             setQuarterIndex(2);
         }
+        else if(quarter==="Oct-Dec"){
+          setQuarterIndex(3);
+      }
      },[quarter])
 
      useEffect(()=>{
@@ -417,10 +420,11 @@ else if(halfYear==="Jul-Dec"){
                     required
                   >
                 <option>Choose Quarter</option>
-                    <option>Jan-Apr</option>
-                    <option>May-Aug</option>
-                    <option>Sep-Dec</option>
-                   
+                    <option>Jan-Mar</option>
+                    <option>Apr-Jun</option>
+                    <option>Jul-Sep</option>
+                    <option>Oct-Dec</option>
+
                   </Form.Select>
                 </Form.Group>
                 <Form.Group as={Col} md="2" controlId="validationFormik01">
@@ -579,9 +583,9 @@ else if(halfYear==="Jul-Dec"){
             <td>{grade.NMS_COUNT_P}</td>
             </>):(table.label=="Behaviour"?(<>
             <td>{grade.MEMO}</td>
-            </>):(table.label=="FNCG"?(<>
+            </>):(table.label=="FMCG Sales"?(<>
             <td>{grade.FNCG_P}</td>
-            </>):(table.label=="Digital"?(<>
+            </>):(table.label=="Digital Sales"?(<>
             <td>{grade.DIG_P}</td>
             </>):(table.label=="Donation"?(<>
             <td>{grade.DONATION_P}</td>

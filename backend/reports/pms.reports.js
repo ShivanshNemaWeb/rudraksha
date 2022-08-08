@@ -153,12 +153,12 @@ router.post("/pms-monthly", async (req, res) => {
                 color: "#D61C4E",
             },
             {
-                label: "FNCG",
+                label: "FMCG",
                 value: percentage.FNCG_P,
                 color: "#FEB139",
             },
             {
-                label: "Digital",
+                label: "DIG",
                 value: percentage.DIG_P,
                 color: "#CEE5D0"
             },
@@ -181,12 +181,12 @@ router.post("/pms-monthly", async (req, res) => {
                 achieved: count.NMS_COUNT,
             },
             {
-                label: "FNCG",
+                label: "FMCG Sales",
                 target: total.TOTAL_FNCG_SALES,
                 achieved: count.FNCG_SALES,
             },
             {
-                label: "Digital",
+                label: "Digital Sales",
                 target: total.TOTAL_DIG_SALES,
                 achieved: count.DIG_SALES,
             },
@@ -234,10 +234,10 @@ router.post("/pms-quarterly", async (req, res) => {
         };
 
         let total = {
-            TOTAL_NMS_COUNT: 21*4,
-            DONATION_TARGET: 2100*4,
-            TOTAL_DIG_SALES: 15000*4,
-            TOTAL_FNCG_SALES: 3000*4,
+            TOTAL_NMS_COUNT: 21*3,
+            DONATION_TARGET: 2100*3,
+            TOTAL_DIG_SALES: 15000*3,
+            TOTAL_FNCG_SALES: 3000*3,
         };
 
         // No. of Volunteers added by an Employee (Updated after current month ends)
@@ -245,21 +245,28 @@ router.post("/pms-quarterly", async (req, res) => {
             for (let i = 0; i < recruiter.monthlyStatus.length; i++) {
                 if (Number(quarter) === 0) {
                     if (
-                        (recruiter.monthlyStatus[i].for.getMonth() === 0 || recruiter.monthlyStatus[i].for.getMonth() === 1 || recruiter.monthlyStatus[i].for.getMonth() === 2 || recruiter.monthlyStatus[i].for.getMonth() === 3) &&
+                        (recruiter.monthlyStatus[i].for.getMonth() === 0 || recruiter.monthlyStatus[i].for.getMonth() === 1 || recruiter.monthlyStatus[i].for.getMonth() === 2) &&
                         recruiter.monthlyStatus[i].for.getFullYear() === Number(year)
                     ) {
                         count.NMS_COUNT = recruiter.monthlyStatus[i].count;
                     }
                 } else if (Number(quarter) === 1) {
                     if (
-                        (recruiter.monthlyStatus[i].for.getMonth() === 4 || recruiter.monthlyStatus[i].for.getMonth() === 5 || recruiter.monthlyStatus[i].for.getMonth() === 6 || recruiter.monthlyStatus[i].for.getMonth() === 7) &&
+                        (recruiter.monthlyStatus[i].for.getMonth() === 3 || recruiter.monthlyStatus[i].for.getMonth() === 4 || recruiter.monthlyStatus[i].for.getMonth() === 5) &&
                         recruiter.monthlyStatus[i].for.getFullYear() === Number(year)
                     ) {
                         count.NMS_COUNT = recruiter.monthlyStatus[i].count;
                     }
                 } else if (Number(quarter) === 2) {
                     if (
-                        (recruiter.monthlyStatus[i].for.getMonth() === 8 || recruiter.monthlyStatus[i].for.getMonth() === 9 || recruiter.monthlyStatus[i].for.getMonth() === 10 || recruiter.monthlyStatus[i].for.getMonth() === 11) &&
+                        (recruiter.monthlyStatus[i].for.getMonth() === 6 || recruiter.monthlyStatus[i].for.getMonth() === 7 || recruiter.monthlyStatus[i].for.getMonth() === 8) &&
+                        recruiter.monthlyStatus[i].for.getFullYear() === Number(year)
+                    ) {
+                        count.NMS_COUNT = recruiter.monthlyStatus[i].count;
+                    }
+                } else if (Number(quarter) === 3) {
+                    if (
+                        (recruiter.monthlyStatus[i].for.getMonth() === 9 || recruiter.monthlyStatus[i].for.getMonth() === 10 || recruiter.monthlyStatus[i].for.getMonth() === 11) &&
                         recruiter.monthlyStatus[i].for.getFullYear() === Number(year)
                     ) {
                         count.NMS_COUNT = recruiter.monthlyStatus[i].count;
@@ -273,19 +280,25 @@ router.post("/pms-quarterly", async (req, res) => {
             for (let i = 0; i < allVols.length; i++) {
                 for (let j = 0; j < allVols[i].donationStatus.length; j++) {
                     if(Number(quarter) === 0){
-                        if ((allVols[i].donationStatus[j].for.getMonth() === 0 || allVols[i].donationStatus[j].for.getMonth() === 1 || allVols[i].donationStatus[j].for.getMonth() === 2 || allVols[i].donationStatus[j].for.getMonth() === 3) &&
+                        if ((allVols[i].donationStatus[j].for.getMonth() === 0 || allVols[i].donationStatus[j].for.getMonth() === 1 || allVols[i].donationStatus[j].for.getMonth() === 2) &&
                             allVols[i].donationStatus[j].for.getFullYear() === Number(year)
                         ) {
                             count.DONATION_YET += allVols[i].donationStatus[j].amount;
                         }
                     } else if(Number(quarter) === 1){
-                        if ((allVols[i].donationStatus[j].for.getMonth() === 4 || allVols[i].donationStatus[j].for.getMonth() === 5 || allVols[i].donationStatus[j].for.getMonth() === 6 || allVols[i].donationStatus[j].for.getMonth() === 7) &&
+                        if ((allVols[i].donationStatus[j].for.getMonth() === 4 || allVols[i].donationStatus[j].for.getMonth() === 5 || allVols[i].donationStatus[j].for.getMonth() === 3) &&
                             allVols[i].donationStatus[j].for.getFullYear() === Number(year)
                         ) {
                             count.DONATION_YET += allVols[i].donationStatus[j].amount;
                         }
                     } else if(Number(quarter) === 2){
-                        if ((allVols[i].donationStatus[j].for.getMonth() === 8 || allVols[i].donationStatus[j].for.getMonth() === 9 || allVols[i].donationStatus[j].for.getMonth() === 10 || allVols[i].donationStatus[j].for.getMonth() === 11) &&
+                        if ((allVols[i].donationStatus[j].for.getMonth() === 6 || allVols[i].donationStatus[j].for.getMonth() === 7 || allVols[i].donationStatus[j].for.getMonth() === 8) &&
+                            allVols[i].donationStatus[j].for.getFullYear() === Number(year)
+                        ) {
+                            count.DONATION_YET += allVols[i].donationStatus[j].amount;
+                        }
+                    } else if(Number(quarter) === 3){
+                        if ((allVols[i].donationStatus[j].for.getMonth() === 9 || allVols[i].donationStatus[j].for.getMonth() === 10 || allVols[i].donationStatus[j].for.getMonth() === 11) &&
                             allVols[i].donationStatus[j].for.getFullYear() === Number(year)
                         ) {
                             count.DONATION_YET += allVols[i].donationStatus[j].amount;
@@ -299,15 +312,19 @@ router.post("/pms-quarterly", async (req, res) => {
         if (digitalSales) {
             for (let i = 0; i < digitalSales.saleStatus.length; i++) {
                 if(Number(quarter) === 0){
-                    if ((digitalSales.saleStatus[i].for.getMonth() === 0 || digitalSales.saleStatus[i].for.getMonth() === 1 || digitalSales.saleStatus[i].for.getMonth() === 2 || digitalSales.saleStatus[i].for.getMonth() === 3) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((digitalSales.saleStatus[i].for.getMonth() === 0 || digitalSales.saleStatus[i].for.getMonth() === 1 || digitalSales.saleStatus[i].for.getMonth() === 2) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.DIG_SALES += digitalSales.saleStatus[i].amount;
                     }
                 } else if(Number(quarter) === 1){
-                    if ((digitalSales.saleStatus[i].for.getMonth() === 4 || digitalSales.saleStatus[i].for.getMonth() === 5 || digitalSales.saleStatus[i].for.getMonth() === 6 || digitalSales.saleStatus[i].for.getMonth() === 7) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((digitalSales.saleStatus[i].for.getMonth() === 3 || digitalSales.saleStatus[i].for.getMonth() === 4 || digitalSales.saleStatus[i].for.getMonth() === 5) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.DIG_SALES += digitalSales.saleStatus[i].amount;
                     }
                 } else if(Number(quarter) === 2){
-                    if ((digitalSales.saleStatus[i].for.getMonth() === 8 || digitalSales.saleStatus[i].for.getMonth() === 9 || digitalSales.saleStatus[i].for.getMonth() === 10 || digitalSales.saleStatus[i].for.getMonth() === 11) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((digitalSales.saleStatus[i].for.getMonth() === 6 || digitalSales.saleStatus[i].for.getMonth() === 7 || digitalSales.saleStatus[i].for.getMonth() === 8) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                        count.DIG_SALES += digitalSales.saleStatus[i].amount;
+                    }
+                } else if(Number(quarter) === 3){
+                    if ((digitalSales.saleStatus[i].for.getMonth() === 9 || digitalSales.saleStatus[i].for.getMonth() === 10 || digitalSales.saleStatus[i].for.getMonth() === 11) && digitalSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.DIG_SALES += digitalSales.saleStatus[i].amount;
                     }
                 }
@@ -318,15 +335,19 @@ router.post("/pms-quarterly", async (req, res) => {
         if (fncgSales) {
             for (let i = 0; i < fncgSales.saleStatus.length; i++) {
                 if(Number(quarter) === 0){
-                    if ((fncgSales.saleStatus[i].for.getMonth() === 0 || fncgSales.saleStatus[i].for.getMonth() === 1 || fncgSales.saleStatus[i].for.getMonth() === 2 || fncgSales.saleStatus[i].for.getMonth() === 3) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((fncgSales.saleStatus[i].for.getMonth() === 0 || fncgSales.saleStatus[i].for.getMonth() === 1 || fncgSales.saleStatus[i].for.getMonth() === 2) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.FNCG_SALES += fncgSales.saleStatus[i].amount;
                     }
                 } else if(Number(quarter) === 1){
-                    if ((fncgSales.saleStatus[i].for.getMonth() === 4 || fncgSales.saleStatus[i].for.getMonth() === 5 || fncgSales.saleStatus[i].for.getMonth() === 6 || fncgSales.saleStatus[i].for.getMonth() === 7) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((fncgSales.saleStatus[i].for.getMonth() === 3 || fncgSales.saleStatus[i].for.getMonth() === 4 || fncgSales.saleStatus[i].for.getMonth() === 5) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.FNCG_SALES += fncgSales.saleStatus[i].amount;
                     }
                 } else if(Number(quarter) === 2){
-                    if ((fncgSales.saleStatus[i].for.getMonth() === 8 || fncgSales.saleStatus[i].for.getMonth() === 9 || fncgSales.saleStatus[i].for.getMonth() === 10 || fncgSales.saleStatus[i].for.getMonth() === 11) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                    if ((fncgSales.saleStatus[i].for.getMonth() === 6 || fncgSales.saleStatus[i].for.getMonth() === 7 || fncgSales.saleStatus[i].for.getMonth() === 8) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
+                        count.FNCG_SALES += fncgSales.saleStatus[i].amount;
+                    }
+                } else if(Number(quarter) === 3){
+                    if ((fncgSales.saleStatus[i].for.getMonth() === 9 || fncgSales.saleStatus[i].for.getMonth() === 10 || fncgSales.saleStatus[i].for.getMonth() === 11) &&fncgSales.saleStatus[i].for.getFullYear() === Number(year)) {
                         count.FNCG_SALES += fncgSales.saleStatus[i].amount;
                     }
                 }
@@ -337,15 +358,19 @@ router.post("/pms-quarterly", async (req, res) => {
         if (memoIssue) {
             for (let i = 0; i < memoIssue.memoStatus.length; i++) {
                 if(Number(quarter) === 0){
-                    if ((memoIssue.memoStatus[i].for.getMonth() === 0 || memoIssue.memoStatus[i].for.getMonth() === 1 || memoIssue.memoStatus[i].for.getMonth() === 2 || memoIssue.memoStatus[i].for.getMonth() === 3) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
+                    if ((memoIssue.memoStatus[i].for.getMonth() === 0 || memoIssue.memoStatus[i].for.getMonth() === 1 || memoIssue.memoStatus[i].for.getMonth() === 2) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
                     count.MEMO_COUNT += 1;
                     }
                 } else if(Number(quarter) === 1){
-                    if ((memoIssue.memoStatus[i].for.getMonth() === 4 || memoIssue.memoStatus[i].for.getMonth() === 5 || memoIssue.memoStatus[i].for.getMonth() === 6 || memoIssue.memoStatus[i].for.getMonth() === 7) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
+                    if ((memoIssue.memoStatus[i].for.getMonth() === 3 || memoIssue.memoStatus[i].for.getMonth() === 4 || memoIssue.memoStatus[i].for.getMonth() === 5) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
                     count.MEMO_COUNT += 1;
                     }
                 } else if(Number(quarter) === 2){
-                    if ((memoIssue.memoStatus[i].for.getMonth() === 8 || memoIssue.memoStatus[i].for.getMonth() === 9 || memoIssue.memoStatus[i].for.getMonth() === 10 || memoIssue.memoStatus[i].for.getMonth() === 11) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
+                    if ((memoIssue.memoStatus[i].for.getMonth() === 6 || memoIssue.memoStatus[i].for.getMonth() === 7 || memoIssue.memoStatus[i].for.getMonth() === 8) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
+                    count.MEMO_COUNT += 1;
+                    }
+                } else if(Number(quarter) === 3){
+                    if ((memoIssue.memoStatus[i].for.getMonth() === 9 || memoIssue.memoStatus[i].for.getMonth() === 10 || memoIssue.memoStatus[i].for.getMonth() === 11) &&memoIssue.memoStatus[i].for.getFullYear() === Number(year)) {
                     count.MEMO_COUNT += 1;
                     }
                 }
@@ -407,12 +432,12 @@ router.post("/pms-quarterly", async (req, res) => {
                 color: "#D61C4E",
             },
             {
-                label: "FNCG",
+                label: "FMCG",
                 value: percentage.FNCG_P,
                 color: "#FEB139",
             },
             {
-                label: "Digital",
+                label: "DIG",
                 value: percentage.DIG_P,
                 color: "#CEE5D0"
             },
@@ -435,12 +460,12 @@ router.post("/pms-quarterly", async (req, res) => {
                 achieved: count.NMS_COUNT,
             },
             {
-                label: "FNCG",
+                label: "FMCG Sales",
                 target: total.TOTAL_FNCG_SALES,
                 achieved: count.FNCG_SALES,
             },
             {
-                label: "Digital",
+                label: "Digital Sales",
                 target: total.TOTAL_DIG_SALES,
                 achieved: count.DIG_SALES,
             },
@@ -636,12 +661,12 @@ router.post("/pms-halfYearly", async (req, res) => {
                 color: "#D61C4E",
             },
             {
-                label: "FNCG",
+                label: "FMCG",
                 value: percentage.FNCG_P,
                 color: "#FEB139",
             },
             {
-                label: "Digital",
+                label: "DIG",
                 value: percentage.DIG_P,
                 color: "#CEE5D0"
             },
@@ -664,12 +689,12 @@ router.post("/pms-halfYearly", async (req, res) => {
                 achieved: count.NMS_COUNT,
             },
             {
-                label: "FNCG",
+                label: "FMCG Sales",
                 target: total.TOTAL_FNCG_SALES,
                 achieved: count.FNCG_SALES,
             },
             {
-                label: "Digital",
+                label: "Digital Sales",
                 target: total.TOTAL_DIG_SALES,
                 achieved: count.DIG_SALES,
             },
@@ -825,12 +850,12 @@ router.post("/pms-yearly", async (req, res) => {
                 color: "#D61C4E",
             },
             {
-                label: "FNCG",
+                label: "FMCG",
                 value: percentage.FNCG_P,
                 color: "#FEB139",
             },
             {
-                label: "Digital",
+                label: "DIG",
                 value: percentage.DIG_P,
                 color: "#CEE5D0"
             },
@@ -853,12 +878,12 @@ router.post("/pms-yearly", async (req, res) => {
                 achieved: count.NMS_COUNT,
             },
             {
-                label: "FNCG",
+                label: "FMCG Sales",
                 target: total.TOTAL_FNCG_SALES,
                 achieved: count.FNCG_SALES,
             },
             {
-                label: "Digital",
+                label: "Digital Sales",
                 target: total.TOTAL_DIG_SALES,
                 achieved: count.DIG_SALES,
             },

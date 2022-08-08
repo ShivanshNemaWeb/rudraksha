@@ -80,7 +80,7 @@ const Login = () => {
         <p className="forgot-password text-right">
           Forgot <a href="#">password?</a>
         </p>
-
+       
         <div style={{ color: "red" }}>{error}</div>
       </form>
     </div>

@@ -68,6 +68,7 @@ import DMS from "./components/CRMPage/DMS/DMS";
 import SMS from "./components/CRMPage/SMS/SMS";   
 import Memo from "./components/CRMPage/Memo/Memo";
 import PMS from "./components/CRMPage/PMS/PMS";
+import Register from "./components/CRMPage/Register/Register";
 
 function App() {
   return (
@@ -137,6 +138,7 @@ function App() {
         <Route exact path="/SMS" component={SMS} />
         <Route exact path="/Memo" component={Memo} />
         <Route exact path="/PMS" component={PMS} />
+        <Route exact path="/Register" component={Register} />
 
       </Switch>
     </>

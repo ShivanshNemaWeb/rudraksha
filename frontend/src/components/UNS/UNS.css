@@ -10,7 +10,10 @@
 .UNSheadline{
     background: #00afc1;
     overflow: hidden;
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
 }
 .UNSheadline h2{
     color: white;
@@ -21,8 +24,9 @@
     
 }
 
+/* cahnged */
 
-.FadeeffectUNS{
+/* .FadeeffectUNS{
 	position: absolute;
 	
 	left: 5%;
@@ -32,7 +36,7 @@
 	animation: myfirstUNS 	10s infinite;
     animation-direction: normal;
 	z-index: 2;
-}
+} */
 
 @keyframes myfirstUNS{
 	
