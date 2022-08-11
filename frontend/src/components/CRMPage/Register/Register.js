@@ -20,7 +20,7 @@ const Register = () => {
   // }, []);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     setError("");
     setDisable(true);
     axios.post(`${process.env.REACT_APP_BACKEND_URL}/api/createEmployeeCredentials`,

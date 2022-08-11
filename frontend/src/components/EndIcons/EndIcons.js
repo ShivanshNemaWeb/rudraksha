@@ -30,13 +30,21 @@ function EndIcons() {
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/deepanshu.jpg')} />
 
                         </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/deepanshu-gupta-98b1011b1/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/MobileApp_ApoorvaGarg.jpg')} />
 
+                        </div>
                         <div className='Slide'>
                         <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/MobileApp_HarshalGosavi.jpg')} />
 
                         </div>
+                        <div className='Slide'>
+                        <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/MobileApp_ShivamKumar.jpg')} />
 
+                        </div>
                         <div className='Slide'>
                         <a href="http://www.linkedin.com/in/neha-mane-56789b20b"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/neha mane.jpg')} />
@@ -96,11 +104,7 @@ function EndIcons() {
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/vaishali hardiya.jpg')} />
 
                         </div>
-                        <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/vaishali-hardiya-7414281ab"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/harshita gupta.jpeg')} />
-
-                        </div>
+                        
 
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/saumya-vyas-564b881aa/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
@@ -129,6 +133,26 @@ function EndIcons() {
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/yasha-mishra-087072185"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/web_Devs/yasha.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/yasha-mishra-087072185"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web_Devs/WebDeveloper_RichikDutta.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/yasha-mishra-087072185"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web_Devs/WebDeveloper_RithikaVaraganti.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/yasha-mishra-087072185"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web_Devs/WebDeveloper_RitikKundlas2.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="https://www.linkedin.com/in/yasha-mishra-087072185"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web_Devs/WebDeveloper_SuchitraRuduru.jpg')} />
 
                         </div>
 
@@ -161,10 +185,17 @@ function EndIcons() {
 
                         <div className='Slide'>
                         <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/Graphic Designer/shiristy.jpeg')} />
+                        <img className="InternsImg" src={require('../../Interns(new)/Graphic Designer/GraphicDesigner_ShiristySingh.jpg')} />
                        
 
                         </div>
+                        <div className='Slide'>
+                        <a href="/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/Graphic Designer/GraphicDesigner_SonuSahu.jpg')} />
+                       
+
+                        </div>
+
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/aisha-ray-42a2a21b9"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/all_web_Devs/aisha.jpg')} />
@@ -229,14 +260,15 @@ https://www.linkedin.com/in/sakshi-pathak-7999621a1"><img className='Linked' src
                         <img className="InternsImg" src={require('../../Interns(new)/all_web_Devs/shailesh.jpg')} />
 
                         </div>
+                       
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/shweta-burge-625350132"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                            <img className="InternsImg" src={require('../../interns/WebDev (13).jpg')} />
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/all_web_Devs/shweta.jpg')} />
 
                         </div>
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/tanumoy-chowdhury-39340a204/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/all_web_Devs/shweta.jpg')} />
+                        <img className="InternsImg" src={require('../../Interns(new)/all_web_Devs/tanumoy.jpg')} />
 
                         </div>
                         <div className='Slide'>
@@ -274,18 +306,18 @@ https://www.linkedin.com/in/utplakshi-2b99a5190/"><img className='Linked' src={r
 
                         </div>
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/manika-gupta-"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/manika gupta.jpg')} />
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/UI_UX_ChetanHarawat.jpg')} />
 
                         </div>
                         <div className='Slide'>
                         <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/ria raina.jpeg')} />
+                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/UI_UX_DurjoyBarua.jpg')} />
 
                         </div>
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/manika-gupta-"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/jayesh shinde.jpeg')} />
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/UI_UX/UI_UX_RadhikaSanghai.jpg')} />
 
                         </div>
                         <div className='Slide'>
@@ -306,16 +338,34 @@ https://www.linkedin.com/in/deepanshu-m-7893a1118"><img className='Linked' src={
                         <img className="InternsImg" src={require('../../Interns(new)/REMAINING/Kaushiki.jpg')} />
 
                         </div>
-                        
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/shivansh-nema-326b52204/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                            <img className="InternsImg" src={require('../../interns/shivansh.jpeg')} />
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/BACKEND DEV/Backend_KshriHari.jpg')} />
 
                         </div>
-
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/kaushiki-goel-60b490155"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                            <img className="InternsImg" src={require('../../interns/shri.jpeg')} />
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/FRONTEND DEV/FrontEnd_ShivanshNema.png')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/LINUX ADMINISTRATOR/LinuxAdministrator_AmitSaini.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web and app/archana.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web and app/shailesh.jpg')} />
+
+                        </div>
+                        <div className='Slide'>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/web and app/uttam.jpg')} />
 
                         </div>
                     </div>
