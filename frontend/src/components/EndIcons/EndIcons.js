@@ -98,11 +98,15 @@ function EndIcons() {
                         </div>
                         
                         <div className='Slide'>
-                        <a href="https://www.linkedin.com/in/vaishali-hardiya-7414281ab"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/harshita gupta.png')} />
 
                         </div>
-                        
+                        <div className='Slide'>
+                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
+                        <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/anil kumar.jpeg')} />
+
+                        </div>
                         <div className='Slide'>
                         <a href="https://www.linkedin.com/in/saumya-vyas-564b881aa/"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/web_Devs/saumya.jpg')} />
