@@ -101,6 +101,7 @@ function EndIcons() {
                         <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/M_APP_DEVS/harshita gupta.png')} />
 
+
                         </div>
                         <div className='Slide'>
                         <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
@@ -371,11 +372,6 @@ https://www.linkedin.com/in/deepanshu-m-7893a1118"><img className='Linked' src={
 
                         </div>
                       
-                        <div className='Slide'>
-                        <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
-                        <img className="InternsImg" src={require('../../Interns(new)/web and app/shailesh.jpg')} />
-
-                        </div>
                         <div className='Slide'>
                         <a href="#"><img className='Linked' src={require('../../Images/linked.png')}/></a>
                         <img className="InternsImg" src={require('../../Interns(new)/web and app/uttam.jpg')} />
